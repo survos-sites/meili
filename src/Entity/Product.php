@@ -21,6 +21,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Survos\BabelBundle\Attribute\BabelLocale;
 use Survos\BabelBundle\Attribute\BabelStorage;
 use Survos\BabelBundle\Attribute\StorageMode;
+use Survos\BabelBundle\Contract\BabelHooksInterface;
 use Survos\CoreBundle\Entity\RouteParametersInterface;
 use Survos\CoreBundle\Entity\RouteParametersTrait;
 use Survos\MeiliBundle\Api\Filter\FacetsFieldSearchFilter;
@@ -106,7 +107,7 @@ use Survos\BabelBundle\Attribute\Translatable;
 //)]
 #[BabelStorage(StorageMode::Property)]
 #[BabelLocale(targetLocales: ['es','fr'])]
-class Product implements RouteParametersInterface
+class Product implements RouteParametersInterface, BabelHooksInterface
 {
     use BabelHooksTrait;
 
