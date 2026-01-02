@@ -1,0 +1,3 @@
+// stimulus
+import './bootstrap.js';
+

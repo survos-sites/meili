@@ -1,7 +1,7 @@
 {
-    "name": "survos-sites/dt-demo",
-    "description": "A Symfony application that demonstrations datatables and other survos bundles",
-    "keywords": ["symfony","datatables.net","api-platform"],
+    "name": "survos-sites/meili",
+    "description": "A Symfony application that demonstrates meili-bundle",
+    "keywords": ["symfony","meilisearch"],
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "RC",
@@ -17,9 +17,9 @@
         "ext-sodium": "*",
         "ext-sqlite3": "*",
         "ext-zip": "*",
-        "api-platform/core": "dev-main",
+        "api-platform/core": "^4.2",
         "doctrine/doctrine-bundle": "^3.0",
-        "doctrine/doctrine-migrations-bundle": "^3.2.4",
+        "doctrine/doctrine-migrations-bundle": "^4.0",
         "doctrine/orm": "^3.4.2",
         "easycorp/easyadmin-bundle": "^4.24",
         "friendsofsymfony/jsrouting-bundle": "dev-master",
@@ -82,7 +82,8 @@
         "symfony/string": "^7.4||^8.0",
         "symfony/translation": "^7.4||^8.0",
         "symfony/twig-bundle": "^7.4||^8.0",
-        "symfony/uid": "^7.3",
+        "symfony/uid": "^7.4||^8.0",
+        "symfony/ux-chartjs": "^2.31",
         "symfony/ux-icons": "^2.21",
         "symfony/ux-twig-component": "^2.13",
         "symfony/validator": "^7.4||^8.0",
@@ -92,7 +93,7 @@
         "twig/intl-extra": "^3.8",
         "twig/markdown-extra": "^3.8",
         "twig/twig": "^3.13",
-        "zenstruck/messenger-monitor-bundle": "^0.5.4"
+        "zenstruck/messenger-monitor-bundle": "^0.6.0"
     },
     "config": {
         "allow-plugins": {
@@ -177,8 +178,7 @@
         "symfony/web-profiler-bundle": "^7.4||^8.0",
         "symplify/easy-coding-standard": "^13.0",
         "vincentlanglet/twig-cs-fixer": "^3.0",
-        "yethee/tiktoken": "^1.0",
-        "zenstruck/browser": "^1.8"
+        "yethee/tiktoken": "^1.0"
     },
     "repositories": {
 
