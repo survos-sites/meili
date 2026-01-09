@@ -16,8 +16,14 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    // our meili / ez-admin
     'admin' => [
         'path' => './assets/admin.js',
+        'entrypoint' => true,
+    ],
+    // meili search
+    'meili' => [
+        'path' => './assets/meili.js',
         'entrypoint' => true,
     ],
     '@symfony/stimulus-bundle' => [

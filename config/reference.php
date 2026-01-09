@@ -2135,7 +2135,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         for?: scalar|null|Param, // Default: null
  *         template?: scalar|null|Param, // Default: null
  *         documentTemplateMaxBytes?: int|Param, // Default: 4096
- *         maxTokensPerDoc?: int|Param, // Optional hint for expected max tokens per doc for cost estimation / guard rails. // Default: null
+ *         maxTokensPerDoc?: int|Param, // Default: null
  *         examples?: list<scalar|null|Param>,
  *     }>,
  *     pricing?: array{

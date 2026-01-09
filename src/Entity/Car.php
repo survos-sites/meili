@@ -18,7 +18,6 @@ use Survos\MeiliBundle\Metadata\MeiliIndex;
  */
 #[Entity(repositoryClass: CarRepository::class)]
 #[MeiliIndex(
-    ui: ['icon' => 'Car'],
 	primaryKey: 'id',
 	filterable: self::FILTERABLE_FIELDS,
 	sortable: self::SORTABLE_FIELDS,
@@ -27,60 +26,65 @@ use Survos\MeiliBundle\Metadata\MeiliIndex;
 final class Car
 {
 	public const FILTERABLE_FIELDS = [
+		'dimensionsHeight',
+		'dimensionsLength',
 		'engineInformationDriveline',
-		'engineInformationHybrid',
 		'engineInformationNumberOfForwardGears',
 		'engineInformationTransmission',
 		'fuelInformationCityMpg',
 		'fuelInformationFuelType',
 		'fuelInformationHighwayMpg',
-		'identificationClassification',
-		'identificationMake',
-		'identificationYear',
+		'engineInformationEngineStatisticsHorsepower',
+		'engineInformationEngineStatisticsTorque',
+	];
+
+	public const SORTABLE_FIELDS = [
+		'dimensionsHeight',
+		'dimensionsLength',
+		'dimensionsWidth',
+		'engineInformationNumberOfForwardGears',
+		'fuelInformationCityMpg',
+		'fuelInformationHighwayMpg',
+		'engineInformationEngineStatisticsHorsepower',
+		'engineInformationEngineStatisticsTorque',
 		'id',
 	];
 
-	public const SORTABLE_FIELDS = ['id'];
 	public const SEARCHABLE_FIELDS = [];
 
 	/**
 	 * Profile field "dimensionsHeight"
 	 * @original Dimensions.Height
-	 * @types string (storageHint=string)
+	 * @types int (storageHint=int)
 	 * @stats total=5076, nulls=0, distinct=198
-	 * @length 1–3 chars
 	 */
-	#[Column(length: 3, nullable: true)]
-	public ?string $dimensionsHeight = null;
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $dimensionsHeight = null;
 
 	/**
 	 * Profile field "dimensionsLength"
 	 * @original Dimensions.Length
-	 * @types string (storageHint=string)
+	 * @types int (storageHint=int)
 	 * @stats total=5076, nulls=0, distinct=208
-	 * @length 1–3 chars
 	 */
-	#[Column(length: 3, nullable: true)]
-	public ?string $dimensionsLength = null;
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $dimensionsLength = null;
 
 	/**
 	 * Profile field "dimensionsWidth"
 	 * @original Dimensions.Width
-	 * @types string (storageHint=string)
+	 * @types int (storageHint=int)
 	 * @stats total=5076, nulls=0, distinct=138
-	 * @length 1–3 chars
 	 */
-	#[Column(length: 3, nullable: true)]
-	public ?string $dimensionsWidth = null;
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $dimensionsWidth = null;
 
 	/**
 	 * Profile field "engineInformationDriveline"
 	 * @original Engine Information.Driveline
 	 * @types string (storageHint=string)
 	 * @stats total=5076, nulls=0, distinct=4
-	 * @length 15–17 chars
-	 * @facetCandidate true
-	 * @booleanLike true
+	 * @naturalLanguageLike true
 	 */
 	#[Column(length: 17, nullable: true)]
 	public ?string $engineInformationDriveline = null;
@@ -90,7 +94,6 @@ final class Car
 	 * @original Engine Information.Engine Type
 	 * @types string (storageHint=string)
 	 * @stats total=5076, nulls=0, distinct=535
-	 * @length 28–60 chars
 	 */
 	#[Column(length: 60, nullable: true)]
 	public ?string $engineInformationEngineType = null;
@@ -98,33 +101,27 @@ final class Car
 	/**
 	 * Profile field "engineInformationHybrid"
 	 * @original Engine Information.Hybrid
-	 * @types string (storageHint=string)
+	 * @types bool (storageHint=bool)
 	 * @stats total=5076, nulls=0, distinct=1
-	 * @length 4 chars
-	 * @facetCandidate true
 	 * @booleanLike true
 	 */
-	#[Column(length: 4, nullable: true)]
-	public ?string $engineInformationHybrid = null;
+	#[Column(type: Types::BOOLEAN, nullable: true)]
+	public ?bool $engineInformationHybrid = null;
 
 	/**
 	 * Profile field "engineInformationNumberOfForwardGears"
 	 * @original Engine Information.Number of Forward Gears
-	 * @types string (storageHint=string)
+	 * @types int (storageHint=int)
 	 * @stats total=5076, nulls=0, distinct=5
-	 * @length 1 chars
-	 * @facetCandidate true
 	 */
-	#[Column(length: 1, nullable: true)]
-	public ?string $engineInformationNumberOfForwardGears = null;
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $engineInformationNumberOfForwardGears = null;
 
 	/**
 	 * Profile field "engineInformationTransmission"
 	 * @original Engine Information.Transmission
 	 * @types string (storageHint=string)
 	 * @stats total=5076, nulls=0, distinct=11
-	 * @length 14–30 chars
-	 * @facetCandidate true
 	 */
 	#[Column(length: 30, nullable: true)]
 	public ?string $engineInformationTransmission = null;
@@ -132,22 +129,17 @@ final class Car
 	/**
 	 * Profile field "fuelInformationCityMpg"
 	 * @original Fuel Information.City mpg
-	 * @types string (storageHint=string)
+	 * @types int (storageHint=int)
 	 * @stats total=5076, nulls=0, distinct=27
-	 * @length 1–2 chars
-	 * @facetCandidate true
 	 */
-	#[Column(length: 2, nullable: true)]
-	public ?string $fuelInformationCityMpg = null;
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $fuelInformationCityMpg = null;
 
 	/**
 	 * Profile field "fuelInformationFuelType"
 	 * @original Fuel Information.Fuel Type
 	 * @types string (storageHint=string)
 	 * @stats total=5076, nulls=0, distinct=4
-	 * @length 3–22 chars
-	 * @facetCandidate true
-	 * @booleanLike true
 	 */
 	#[Column(length: 22, nullable: true)]
 	public ?string $fuelInformationFuelType = null;
@@ -155,22 +147,17 @@ final class Car
 	/**
 	 * Profile field "fuelInformationHighwayMpg"
 	 * @original Fuel Information.Highway mpg
-	 * @types string (storageHint=string)
+	 * @types int (storageHint=int)
 	 * @stats total=5076, nulls=0, distinct=34
-	 * @length 2–3 chars
-	 * @facetCandidate true
 	 */
-	#[Column(length: 3, nullable: true)]
-	public ?string $fuelInformationHighwayMpg = null;
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $fuelInformationHighwayMpg = null;
 
 	/**
 	 * Profile field "identificationClassification"
 	 * @original Identification.Classification
 	 * @types string (storageHint=string)
 	 * @stats total=5076, nulls=0, distinct=2
-	 * @length 19–22 chars
-	 * @facetCandidate true
-	 * @booleanLike true
 	 */
 	#[Column(length: 22, nullable: true)]
 	public ?string $identificationClassification = null;
@@ -180,7 +167,6 @@ final class Car
 	 * @original Identification.ID
 	 * @types string (storageHint=string)
 	 * @stats total=5076, nulls=0, distinct=5030
-	 * @length 12–67 chars
 	 */
 	#[Column(length: 67, nullable: true)]
 	public ?string $identificationId = null;
@@ -190,8 +176,6 @@ final class Car
 	 * @original Identification.Make
 	 * @types string (storageHint=string)
 	 * @stats total=5076, nulls=0, distinct=47
-	 * @length 3–18 chars
-	 * @facetCandidate true
 	 */
 	#[Column(length: 18, nullable: true)]
 	public ?string $identificationMake = null;
@@ -201,7 +185,6 @@ final class Car
 	 * @original Identification.Model Year
 	 * @types string (storageHint=string)
 	 * @stats total=5076, nulls=0, distinct=918
-	 * @length 11–48 chars
 	 */
 	#[Column(length: 48, nullable: true)]
 	public ?string $identificationModelYear = null;
@@ -209,34 +192,29 @@ final class Car
 	/**
 	 * Profile field "identificationYear"
 	 * @original Identification.Year
-	 * @types string (storageHint=string)
+	 * @types int (storageHint=int)
 	 * @stats total=5076, nulls=0, distinct=4
-	 * @length 4 chars
-	 * @facetCandidate true
-	 * @booleanLike true
 	 */
-	#[Column(length: 4, nullable: true)]
-	public ?string $identificationYear = null;
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $identificationYear = null;
 
 	/**
 	 * Profile field "engineInformationEngineStatisticsHorsepower"
 	 * @original Engine Information.Engine Statistics.Horsepower
-	 * @types string (storageHint=string)
+	 * @types int (storageHint=int)
 	 * @stats total=5076, nulls=0, distinct=216
-	 * @length 3 chars
 	 */
-	#[Column(length: 3, nullable: true)]
-	public ?string $engineInformationEngineStatisticsHorsepower = null;
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $engineInformationEngineStatisticsHorsepower = null;
 
 	/**
 	 * Profile field "engineInformationEngineStatisticsTorque"
 	 * @original Engine Information.Engine Statistics.Torque
-	 * @types string (storageHint=string)
+	 * @types int (storageHint=int)
 	 * @stats total=5076, nulls=0, distinct=217
-	 * @length 2–3 chars
 	 */
-	#[Column(length: 3, nullable: true)]
-	public ?string $engineInformationEngineStatisticsTorque = null;
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $engineInformationEngineStatisticsTorque = null;
 
 	/**
 	 * Profile field "id"
