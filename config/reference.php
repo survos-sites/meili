@@ -418,7 +418,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         enabled?: bool|Param, // Default: true
  *     },
  *     lock?: bool|string|array{ // Lock configuration
- *         enabled?: bool|Param, // Default: false
+ *         enabled?: bool|Param, // Default: true
  *         resources?: array<string, string|list<scalar|null|Param>>,
  *     },
  *     semaphore?: bool|string|array{ // Semaphore configuration
@@ -1458,7 +1458,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         name_prefix?: scalar|null|Param, // Default: ""
  *     }>,
  *     anonymous_template_directory?: scalar|null|Param, // Defaults to `components`
- *     profiler?: bool|Param, // Enables the profiler for Twig Component (in debug mode) // Default: "%kernel.debug%"
+ *     profiler?: bool|array{ // Enables the profiler for Twig Component
+ *         enabled?: bool|Param, // Default: "%kernel.debug%"
+ *         collect_components?: bool|Param, // Collect components instances // Default: true
+ *     },
  *     controllers_json?: scalar|null|Param, // Deprecated: The "twig_component.controllers_json" config option is deprecated, and will be removed in 3.0. // Default: null
  * }
  * @psalm-type SurvosCoreConfig = array{
@@ -1994,6 +1997,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         flysystem?: array{
  *             filesystem_service: scalar|null|Param,
  *         },
+ *         asset_mapper?: array<mixed>,
  *         chain?: array{
  *             loaders: list<scalar|null|Param>,
  *         },
@@ -2053,13 +2057,13 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  * }
  * @psalm-type UxIconsConfig = array{
  *     icon_dir?: scalar|null|Param, // The local directory where icons are stored. // Default: "%kernel.project_dir%/assets/icons"
- *     default_icon_attributes?: mixed, // Default attributes to add to all icons. // Default: {"fill":"currentColor"}
+ *     default_icon_attributes?: array<string, scalar|null|Param>,
  *     icon_sets?: array<string, array{ // the icon set prefix (e.g. "acme") // Default: []
  *         path?: scalar|null|Param, // The local icon set directory path. (cannot be used with 'alias')
  *         alias?: scalar|null|Param, // The remote icon set identifier. (cannot be used with 'path')
- *         icon_attributes?: list<mixed>,
+ *         icon_attributes?: array<string, scalar|null|Param>,
  *     }>,
- *     aliases?: list<scalar|null|Param>,
+ *     aliases?: array<string, string|Param>,
  *     iconify?: bool|array{ // Configuration for the remote icon service.
  *         enabled?: bool|Param, // Default: true
  *         on_demand?: bool|Param, // Whether to download icons "on demand". // Default: true
@@ -2070,6 +2074,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  * @psalm-type SurvosSaisConfig = array{
  *     root?: scalar|null|Param, // If not set, must be passed to each call // Default: null
  *     api_endpoint?: scalar|null|Param, // Default: "https://sais.survos.com"
+ *     imgproxy?: scalar|null|Param, // Default: "https://images.survos.com"
  *     api_key?: scalar|null|Param, // Default: ""
  * }
  * @psalm-type DoctrineDiagramConfig = array{
