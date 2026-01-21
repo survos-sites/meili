@@ -213,9 +213,6 @@
             "tests/bootstrap.php"
         ]
     },
-    "pierstoval/smoke-testing": {
-        "version": "v1.0.0"
-    },
     "sentry/sentry-symfony": {
         "version": "5.2",
         "recipe": {
@@ -230,18 +227,6 @@
     },
     "spomky-labs/phpwa": {
         "version": "1.0.3"
-    },
-    "squizlabs/php_codesniffer": {
-        "version": "3.7",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "3.6",
-            "ref": "1019e5c08d4821cb9b77f4891f8e9c31ff20ac6f"
-        },
-        "files": [
-            "phpcs.xml.dist"
-        ]
     },
     "survos/auth-bundle": {
         "version": "1.5.67"
@@ -299,9 +284,6 @@
     "survos/import-bundle": {
         "version": "2.0.58"
     },
-    "survos/inspection-bundle": {
-        "version": "1.5.93"
-    },
     "survos/jsonl-bundle": {
         "version": "2.0.55"
     },
@@ -320,9 +302,6 @@
             "config/packages/survos_meili.yaml",
             "config/routes/survos_meili.yaml"
         ]
-    },
-    "survos/sais-bundle": {
-        "version": "1.5.490"
     },
     "survos/scraper-bundle": {
         "version": "dev-sy64"
@@ -661,18 +640,6 @@
         },
         "files": [
             "config/packages/messenger.yaml"
-        ]
-    },
-    "symfony/webhook": {
-        "version": "7.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "7.3",
-            "ref": "b70844963dc84e9a99b94ae552efe691d74b087f"
-        },
-        "files": [
-            "config/routes/webhook.yaml"
         ]
     },
     "symfony/workflow": {

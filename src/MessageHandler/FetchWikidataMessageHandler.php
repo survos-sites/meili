@@ -27,12 +27,10 @@ final class FetchWikidataMessageHandler
     public function __construct(
         private WikidataService                                $wikiService,
         private EntityManagerInterface                     $entityManager,
-        private SaisClientService                          $imageClientService,
         private FilesystemOperator                         $defaultStorage,
         private LoggerInterface                            $logger,
         private UrlGeneratorInterface                      $urlGenerator, // could be moved to somewhere else and inject the callback here.
         #[Autowire('%kernel.project_dir%')] private string $projectDir,
-        private readonly SaisClientService $saisClientService,
     )
     {
     }

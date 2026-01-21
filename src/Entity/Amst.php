@@ -11,6 +11,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\Table;
 use Survos\EzBundle\Attribute\EzField;
 use Survos\MeiliBundle\Metadata\MeiliIndex;
 
@@ -19,13 +20,14 @@ use Survos\MeiliBundle\Metadata\MeiliIndex;
  * @profile data/amst.profile.json
  */
 #[Entity(repositoryClass: AmstRepository::class)]
-#[MeiliIndex(
-    primaryKey: 'code',
-    filterable: self::FILTERABLE_FIELDS,
-    sortable: self::SORTABLE_FIELDS,
-    searchable: self::SEARCHABLE_FIELDS,
-    embedders: ['amst_en_large']
-)]
+// moved to bts repo
+//#[MeiliIndex(
+//    primaryKey: 'code',
+//    filterable: self::FILTERABLE_FIELDS,
+//    sortable: self::SORTABLE_FIELDS,
+//    searchable: self::SEARCHABLE_FIELDS,
+//    embedders: ['amst_en_large']
+//)]
 final class Amst
 {
     public const FILTERABLE_FIELDS = [

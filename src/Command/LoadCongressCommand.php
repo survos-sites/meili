@@ -4,19 +4,14 @@ namespace App\Command;
 
 use App\Entity\Official;
 use App\Entity\Term;
-use App\Message\FetchWikidataMessage;
 use App\Repository\OfficialRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Survos\SaisBundle\Model\AccountSetup;
-use Survos\SaisBundle\Service\SaisClientService;
 use Symfony\Component\Cache\CacheItem;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Attribute\Option;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Messenger\MessageBusInterface;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Contracts\Cache\CacheInterface;
@@ -31,11 +26,8 @@ final class LoadCongressCommand
     public function __construct(
         private readonly ValidatorInterface  $validator,
         private readonly CacheInterface      $cache,
-        private readonly MessageBusInterface $bus,
         private EntityManagerInterface       $manager,
-        private SerializerInterface          $serializer,
         private OfficialRepository           $officialRepository,
-        private readonly SaisClientService $saisClientService,
         ?string                              $name = null)
     {
 //        parent::__construct($name);

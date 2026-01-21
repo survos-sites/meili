@@ -5,6 +5,16 @@ use Survos\MeiliBundle\Model\Dataset;
 
 use function Castor\{io, run, capture, import, http_download};
 
+//import('src/Command/LoadCongressCommand.php');
+//import('src/Command/LoadDummyCommand.php');
+//import('src/Command/JeopardyCommand.php');
+
+try {
+    import('.castor/vendor/tacman/castor-tools/castor.php');
+} catch (Throwable $e) {
+    io()->error($e->getMessage());
+}
+
 $autoloadCandidates = [
     __DIR__ . '/vendor/autoload.php',
     __DIR__ . '/../vendor/autoload.php',
@@ -17,15 +27,6 @@ foreach ($autoloadCandidates as $autoload) {
     }
 }
 
-import('src/Command/LoadCongressCommand.php');
-import('src/Command/LoadDummyCommand.php');
-import('src/Command/JeopardyCommand.php');
-
-try {
-    import('.castor/vendor/tacman/castor-tools/castor.php');
-} catch (Throwable $e) {
-    io()->error($e->getMessage());
-}
 
 #[AsTask('congress:details', description: 'Fetch details from wikipedia')]
 function congress_details(): void

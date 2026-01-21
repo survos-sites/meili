@@ -188,7 +188,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         only_exceptions?: bool|Param, // Default: false
  *         only_main_requests?: bool|Param, // Default: false
  *         dsn?: scalar|null|Param, // Default: "file:%kernel.cache_dir%/profiler"
- *         collect_serializer_data?: bool|Param, // Enables the serializer data collector and profiler panel. // Default: false
+ *         collect_serializer_data?: true|Param, // Default: true
  *     },
  *     workflows?: bool|array{
  *         enabled?: bool|Param, // Default: false
@@ -232,7 +232,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         enabled?: bool|Param, // Default: false
  *         resource: scalar|null|Param,
  *         type?: scalar|null|Param,
- *         cache_dir?: scalar|null|Param, // Deprecated: Setting the "framework.router.cache_dir.cache_dir" configuration option is deprecated. It will be removed in version 8.0. // Default: "%kernel.build_dir%"
  *         default_uri?: scalar|null|Param, // The default URI used to generate URLs in a non-HTTP context. // Default: null
  *         http_port?: scalar|null|Param, // Default: 80
  *         https_port?: scalar|null|Param, // Default: 443
@@ -256,8 +255,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         gc_maxlifetime?: scalar|null|Param,
  *         save_path?: scalar|null|Param, // Defaults to "%kernel.cache_dir%/sessions" if the "handler_id" option is not null.
  *         metadata_update_threshold?: int|Param, // Seconds to wait between 2 session metadata updates. // Default: 0
- *         sid_length?: int|Param, // Deprecated: Setting the "framework.session.sid_length.sid_length" configuration option is deprecated. It will be removed in version 8.0. No alternative is provided as PHP 8.4 has deprecated the related option.
- *         sid_bits_per_character?: int|Param, // Deprecated: Setting the "framework.session.sid_bits_per_character.sid_bits_per_character" configuration option is deprecated. It will be removed in version 8.0. No alternative is provided as PHP 8.4 has deprecated the related option.
  *     },
  *     request?: bool|array{ // Request configuration
  *         enabled?: bool|Param, // Default: false
@@ -331,11 +328,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     validation?: bool|array{ // Validation configuration
  *         enabled?: bool|Param, // Default: true
- *         cache?: scalar|null|Param, // Deprecated: Setting the "framework.validation.cache.cache" configuration option is deprecated. It will be removed in version 8.0.
  *         enable_attributes?: bool|Param, // Default: true
  *         static_method?: list<scalar|null|Param>,
  *         translation_domain?: scalar|null|Param, // Default: "validators"
- *         email_validation_mode?: "html5"|"html5-allow-no-tld"|"strict"|"loose"|Param, // Default: "html5"
+ *         email_validation_mode?: "html5"|"html5-allow-no-tld"|"strict"|Param, // Default: "html5"
  *         mapping?: array{
  *             paths?: list<scalar|null|Param>,
  *         },
@@ -347,9 +343,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         auto_mapping?: array<string, array{ // Default: []
  *             services?: list<scalar|null|Param>,
  *         }>,
- *     },
- *     annotations?: bool|array{
- *         enabled?: bool|Param, // Default: false
  *     },
  *     serializer?: bool|array{ // Serializer configuration
  *         enabled?: bool|Param, // Default: true
@@ -382,7 +375,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     property_info?: bool|array{ // Property info configuration
  *         enabled?: bool|Param, // Default: true
- *         with_constructor_extractor?: bool|Param, // Registers the constructor extractor.
+ *         with_constructor_extractor?: bool|Param, // Registers the constructor extractor. // Default: true
  *     },
  *     cache?: array{ // Cache configuration
  *         prefix_seed?: scalar|null|Param, // Used to namespace cache keys when using several apps with the same shared backend. // Default: "_%kernel.project_dir%.%kernel.container_class%"
@@ -676,7 +669,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         }>,
  *     },
  *     webhook?: bool|array{ // Webhook configuration
- *         enabled?: bool|Param, // Default: true
+ *         enabled?: bool|Param, // Default: false
  *         message_bus?: scalar|null|Param, // The message bus to use. // Default: "messenger.default_bus"
  *         routing?: array<string, array{ // Default: []
  *             service: scalar|null|Param,
@@ -684,7 +677,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         }>,
  *     },
  *     remote-event?: bool|array{ // RemoteEvent configuration
- *         enabled?: bool|Param, // Default: true
+ *         enabled?: bool|Param, // Default: false
  *     },
  *     json_streamer?: bool|array{ // JSON streamer configuration
  *         enabled?: bool|Param, // Default: false
@@ -1909,9 +1902,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         vary?: list<scalar|null|Param>,
  *     },
  * }
- * @psalm-type SurvosInspectionConfig = array{
- *     debug?: bool|Param, // Default: false
- * }
  * @psalm-type SurvosCrawlerConfig = array{
  *     users?: list<mixed>,
  *     routes_to_ignore?: list<mixed>,
@@ -2071,12 +2061,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     ignore_not_found?: bool|Param, // Ignore error when an icon is not found. Set to 'true' to fail silently. // Default: false
  * }
- * @psalm-type SurvosSaisConfig = array{
- *     root?: scalar|null|Param, // If not set, must be passed to each call // Default: null
- *     api_endpoint?: scalar|null|Param, // Default: "https://sais.survos.com"
- *     imgproxy?: scalar|null|Param, // Default: "https://images.survos.com"
- *     api_key?: scalar|null|Param, // Default: ""
- * }
  * @psalm-type DoctrineDiagramConfig = array{
  *     er?: array{
  *         filename?: scalar|null|Param, // Default: "%kernel.project_dir%/er"
@@ -2226,13 +2210,11 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     survos_scraper?: SurvosScraperConfig,
  *     survos_simple_datatables?: SurvosSimpleDatatablesConfig,
  *     fos_js_routing?: FosJsRoutingConfig,
- *     survos_inspection?: SurvosInspectionConfig,
  *     survos_crawler?: SurvosCrawlerConfig,
  *     survos_wiki?: SurvosWikiConfig,
  *     flysystem?: FlysystemConfig,
  *     liip_imagine?: LiipImagineConfig,
  *     ux_icons?: UxIconsConfig,
- *     survos_sais?: SurvosSaisConfig,
  *     inspector?: InspectorConfig,
  *     survos_meili?: SurvosMeiliConfig,
  *     survos_state?: SurvosStateConfig,
@@ -2269,14 +2251,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         survos_scraper?: SurvosScraperConfig,
  *         survos_simple_datatables?: SurvosSimpleDatatablesConfig,
  *         fos_js_routing?: FosJsRoutingConfig,
- *         survos_inspection?: SurvosInspectionConfig,
  *         survos_crawler?: SurvosCrawlerConfig,
  *         survos_command?: SurvosCommandConfig,
  *         survos_wiki?: SurvosWikiConfig,
  *         flysystem?: FlysystemConfig,
  *         liip_imagine?: LiipImagineConfig,
  *         ux_icons?: UxIconsConfig,
- *         survos_sais?: SurvosSaisConfig,
  *         doctrine_diagram?: DoctrineDiagramConfig,
  *         inspector?: InspectorConfig,
  *         survos_code?: SurvosCodeConfig,
@@ -2314,13 +2294,11 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         survos_scraper?: SurvosScraperConfig,
  *         survos_simple_datatables?: SurvosSimpleDatatablesConfig,
  *         fos_js_routing?: FosJsRoutingConfig,
- *         survos_inspection?: SurvosInspectionConfig,
  *         survos_crawler?: SurvosCrawlerConfig,
  *         survos_wiki?: SurvosWikiConfig,
  *         flysystem?: FlysystemConfig,
  *         liip_imagine?: LiipImagineConfig,
  *         ux_icons?: UxIconsConfig,
- *         survos_sais?: SurvosSaisConfig,
  *         inspector?: InspectorConfig,
  *         survos_meili?: SurvosMeiliConfig,
  *         survos_state?: SurvosStateConfig,
@@ -2356,13 +2334,11 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         survos_simple_datatables?: SurvosSimpleDatatablesConfig,
  *         sentry?: SentryConfig,
  *         fos_js_routing?: FosJsRoutingConfig,
- *         survos_inspection?: SurvosInspectionConfig,
  *         survos_crawler?: SurvosCrawlerConfig,
  *         survos_wiki?: SurvosWikiConfig,
  *         flysystem?: FlysystemConfig,
  *         liip_imagine?: LiipImagineConfig,
  *         ux_icons?: UxIconsConfig,
- *         survos_sais?: SurvosSaisConfig,
  *         inspector?: InspectorConfig,
  *         survos_meili?: SurvosMeiliConfig,
  *         survos_state?: SurvosStateConfig,
@@ -2398,14 +2374,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         survos_scraper?: SurvosScraperConfig,
  *         survos_simple_datatables?: SurvosSimpleDatatablesConfig,
  *         fos_js_routing?: FosJsRoutingConfig,
- *         survos_inspection?: SurvosInspectionConfig,
  *         survos_crawler?: SurvosCrawlerConfig,
  *         survos_command?: SurvosCommandConfig,
  *         survos_wiki?: SurvosWikiConfig,
  *         flysystem?: FlysystemConfig,
  *         liip_imagine?: LiipImagineConfig,
  *         ux_icons?: UxIconsConfig,
- *         survos_sais?: SurvosSaisConfig,
  *         doctrine_diagram?: DoctrineDiagramConfig,
  *         inspector?: InspectorConfig,
  *         survos_code?: SurvosCodeConfig,

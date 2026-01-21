@@ -3,8 +3,6 @@ framework:
     secret: '%env(APP_SECRET)%'
     #csrf_protection: true
     # do we still need these 3 lines?
-    annotations:
-        enabled: false
     http_method_override: false
     handle_all_throwables: true
 
