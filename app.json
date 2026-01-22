@@ -8,20 +8,10 @@
     "repository": "https://github.com/survos-sites/dt-demo",
     "scripts": {
         "dokku": {
-            "predeploy": "bin/console  secrets:decrypt-to-local --force && bin/console doctrine:migrations:migrate -n --allow-no-migration && bin/console importmap:install && bin/console asset-map:compile && ",
+            "predeploy": "bin/console importmap:install && bin/console asset-map:compile && bin/console  secrets:decrypt-to-local --force && bin/console doctrine:migrations:migrate -n --allow-no-migration",
             "postdeploy": "bin/console about"
         }
     },
-    "cron": [
-        {
-            "command": "bin/console mess:consume official.fetch.wiki  --time-limit 290",
-            "schedule": "*/5 * * * *"
-        },
-        {
-            "command": "bin/console mess:consume meili  --time-limit 115",
-            "schedule": "*/2 * * * *"
-        }
-    ],
     "env": {
         "SECRET_TOKEN": {
             "description": "A secret key for verifying the integrity of signed cookies.",
