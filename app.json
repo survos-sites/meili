@@ -8,7 +8,7 @@
     "repository": "https://github.com/survos-sites/dt-demo",
     "scripts": {
         "dokku": {
-            "predeploy": "bin/console importmap:install && bin/console asset-map:compile && bin/console  secrets:decrypt-to-local --force && bin/console doctrine:migrations:migrate -n --allow-no-migration",
+            "predeploy": "bin/console  secrets:decrypt-to-local --force && bin/console doctrine:migrations:migrate -n --allow-no-migration && bin/console importmap:install && bin/console asset-map:compile && ",
             "postdeploy": "bin/console about"
         }
     },
