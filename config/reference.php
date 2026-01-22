@@ -2174,17 +2174,11 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     enabled?: bool|Param, // Default: true
  * }
  * @psalm-type SurvosJsonlConfig = array<mixed>
- * @psalm-type SurvosBabelConfig = array<mixed>
  * @psalm-type SurvosDeploymentConfig = array{
  *     enabled?: bool|Param, // Default: true
  * }
  * @psalm-type SurvosImportConfig = array{
  *     dir?: scalar|null|Param, // The default directory for data files // Default: "data"
- * }
- * @psalm-type SurvosLinguaConfig = array{
- *     server?: scalar|null|Param, // Default: "%env(default::LINGUA_BASE_URI)%"
- *     api_key?: scalar|null|Param, // Default: "%env(default::LINGUA_API_KEY)%"
- *     timeout?: int|Param, // Default: 10
  * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
@@ -2221,9 +2215,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     zenstruck_messenger_monitor?: ZenstruckMessengerMonitorConfig,
  *     survos_ez?: SurvosEzConfig,
  *     survos_jsonl?: SurvosJsonlConfig,
- *     survos_babel?: SurvosBabelConfig,
  *     survos_import?: SurvosImportConfig,
- *     survos_lingua?: SurvosLinguaConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2265,10 +2257,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         zenstruck_messenger_monitor?: ZenstruckMessengerMonitorConfig,
  *         survos_ez?: SurvosEzConfig,
  *         survos_jsonl?: SurvosJsonlConfig,
- *         survos_babel?: SurvosBabelConfig,
  *         survos_deployment?: SurvosDeploymentConfig,
  *         survos_import?: SurvosImportConfig,
- *         survos_lingua?: SurvosLinguaConfig,
  *     },
  *     "when@never"?: array{
  *         imports?: ImportsConfig,
@@ -2305,9 +2295,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         zenstruck_messenger_monitor?: ZenstruckMessengerMonitorConfig,
  *         survos_ez?: SurvosEzConfig,
  *         survos_jsonl?: SurvosJsonlConfig,
- *         survos_babel?: SurvosBabelConfig,
  *         survos_import?: SurvosImportConfig,
- *         survos_lingua?: SurvosLinguaConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -2345,9 +2333,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         zenstruck_messenger_monitor?: ZenstruckMessengerMonitorConfig,
  *         survos_ez?: SurvosEzConfig,
  *         survos_jsonl?: SurvosJsonlConfig,
- *         survos_babel?: SurvosBabelConfig,
  *         survos_import?: SurvosImportConfig,
- *         survos_lingua?: SurvosLinguaConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2388,10 +2374,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         zenstruck_messenger_monitor?: ZenstruckMessengerMonitorConfig,
  *         survos_ez?: SurvosEzConfig,
  *         survos_jsonl?: SurvosJsonlConfig,
- *         survos_babel?: SurvosBabelConfig,
  *         survos_deployment?: SurvosDeploymentConfig,
  *         survos_import?: SurvosImportConfig,
- *         survos_lingua?: SurvosLinguaConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,

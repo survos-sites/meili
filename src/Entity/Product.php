@@ -18,10 +18,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Survos\BabelBundle\Attribute\BabelLocale;
-use Survos\BabelBundle\Attribute\BabelStorage;
-use Survos\BabelBundle\Attribute\StorageMode;
-use Survos\BabelBundle\Contract\BabelHooksInterface;
 use Survos\CoreBundle\Entity\RouteParametersInterface;
 use Survos\CoreBundle\Entity\RouteParametersTrait;
 use Survos\MeiliBundle\Api\Filter\FacetsFieldSearchFilter;
@@ -33,13 +29,8 @@ use Survos\MeiliBundle\Metadata\FieldSet;
 use Survos\MeiliBundle\Metadata\MeiliIndex;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
-
-
 use Survos\BabelBundle\Entity\Traits\BabelHooksTrait;
-
 use Doctrine\ORM\Mapping\Column;
-
-use Survos\BabelBundle\Attribute\Translatable;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 #[ApiResource(
@@ -105,12 +96,8 @@ use Survos\BabelBundle\Attribute\Translatable;
 //    ),
 //    embedders: ['product']
 //)]
-#[BabelStorage(StorageMode::Property)]
-#[BabelLocale(targetLocales: ['es','fr'])]
-class Product implements RouteParametersInterface, BabelHooksInterface
+class Product implements RouteParametersInterface
 {
-    use BabelHooksTrait;
-
     use RouteParametersTrait;
 
     private const RANGE_PROPS = ['rating', 'stock']; // // meili will also add RANGE_PROPS as filterable
@@ -231,29 +218,11 @@ class Product implements RouteParametersInterface, BabelHooksInterface
         return $this;
     }
 
-
-        // <BABEL:TRANSLATABLE:START title>
         #[Column(type: Types::TEXT, nullable: true)]
-        private(set) ?string $titleBacking = null;
+        private(set) ?string $title = null;
 
-        #[Translatable(context: NULL)]
-        #[Groups(['product.read', 'product.searchable'])]
-        public ?string $title {
-            get => $this->resolveTranslatable('title', $this->titleBacking, NULL);
-            set => $this->titleBacking = $value;
-        }
-        // <BABEL:TRANSLATABLE:END title>
-
-        // <BABEL:TRANSLATABLE:START description>
         #[Column(type: Types::TEXT, nullable: true)]
-        private ?string $descriptionBacking = null;
+        private ?string $description = null;
 
-        #[Translatable(context: NULL)]
-        #[Groups(['product.read', 'product.searchable'])]
-        public ?string $description {
-            get => $this->resolveTranslatable('description', $this->descriptionBacking, NULL);
-            set => $this->descriptionBacking = $value;
-        }
         public ?string $snippet { get => mb_substr($this->description, 0, 40); }
-        // <BABEL:TRANSLATABLE:END description>
 }

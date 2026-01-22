@@ -231,9 +231,6 @@
     "survos/auth-bundle": {
         "version": "1.5.67"
     },
-    "survos/babel-bundle": {
-        "version": "2.0.57"
-    },
     "survos/bootstrap-bundle": {
         "version": "dev-main"
     },
@@ -286,9 +283,6 @@
     },
     "survos/jsonl-bundle": {
         "version": "2.0.55"
-    },
-    "survos/lingua-bundle": {
-        "version": "2.0.81"
     },
     "survos/meili-bundle": {
         "version": "2.0",
