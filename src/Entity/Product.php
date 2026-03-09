@@ -19,8 +19,6 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Survos\CoreBundle\Entity\RouteParametersInterface;
 use Survos\CoreBundle\Entity\RouteParametersTrait;
-use Survos\MeiliBundle\Api\Filter\FacetsFieldSearchFilter;
-use Survos\MeiliBundle\Metadata\Embedder;
 use Survos\MeiliBundle\Metadata\Facet;
 use Survos\MeiliBundle\Metadata\FacetWidget;
 use Survos\MeiliBundle\Metadata\Fields;
