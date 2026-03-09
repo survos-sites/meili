@@ -42,9 +42,9 @@ final class AppMenu implements KnpMenuHelperInterface
             $this->add($menu, $route); // label: u($route)->after('app_')
         }
         $this->add($menu, 'survos_workflow_entities', label: "*entities");
-        foreach ($this->meiliService->rawSettings as $indexName => $settings) {
+        foreach ($this->meiliService->settings as $indexName => $settings) {
 //            dd($settings);
-            $this->add($menu, 'meili_insta', ['indexName' => $settings['prefixedName']], label: $indexName);
+            $this->add($menu, 'meili_insta', ['indexName' => $settings['baseName']], label: $indexName);
         }
 //        foreach ([Instrument::class, Official::class, Jeopardy::class] as $class) {
 //            $shortName = new \ReflectionClass($class)->getShortName();
@@ -61,7 +61,7 @@ final class AppMenu implements KnpMenuHelperInterface
         }
 
         foreach ($this->contextService->getConfig()['app']['social'] ?? [] as $platform => $value) {
-            $this->add($menu, uri: $value, label: $platform, external: true, icon: 'bi bi-' . $platform);
+            $this->add($menu, uri: $value, label: $platform, external: true, icon: 'bi:' . $platform);
         }
 
 //        foreach (['app_credit'] as $route) {
@@ -85,7 +85,7 @@ final class AppMenu implements KnpMenuHelperInterface
 
         $menu = $event->getMenu();
         foreach ($this->contextService->getConfig()['app']['social'] ?? [] as $platform => $value) {
-            $this->add($menu, uri: $value, label: $platform, external: true, icon: 'bi bi-' . $platform);
+            $this->add($menu, uri: $value, label: $platform, external: true, icon: 'bi:' . $platform);
         }
         $this->add($menu, label: ' ', dividerAppend: true);
 

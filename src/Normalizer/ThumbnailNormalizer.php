@@ -10,8 +10,8 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\SerializerAwareInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
-#[AsDecorator('api_platform.jsonld.normalizer.item')]
-class ThumbnailNormalizer implements NormalizerInterface, SerializerAwareInterface
+//#[AsDecorator('api_platform.jsonld.normalizer.item')]
+class ThumbnailNormalizer # implements NormalizerInterface, SerializerAwareInterface
 {
     public function __construct(private NormalizerInterface $normalizer,
                                 private CacheManager $cacheManager

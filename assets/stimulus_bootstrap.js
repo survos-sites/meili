@@ -3,6 +3,5 @@ import RevealController from '@stimulus-components/reveal'
 
 const app = startStimulusApp();
 
-app.debug = true; // process.env.NODE_ENV === 'development'
-
+app.debug = false;
 app.register('reveal', RevealController)

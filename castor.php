@@ -9,11 +9,11 @@ use function Castor\{io, run, capture, import, http_download};
 //import('src/Command/LoadDummyCommand.php');
 //import('src/Command/JeopardyCommand.php');
 
-try {
-    import('.castor/vendor/tacman/castor-tools/castor.php');
-} catch (Throwable $e) {
-    io()->error($e->getMessage());
-}
+//try {
+//    import('.castor/vendor/tacman/castor-tools/castor.php');
+//} catch (Throwable $e) {
+//    io()->error($e->getMessage());
+//}
 
 $autoloadCandidates = [
     __DIR__ . '/vendor/autoload.php',

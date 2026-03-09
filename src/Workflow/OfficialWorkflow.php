@@ -35,10 +35,9 @@ final class OfficialWorkflow
 
     public function __construct(
         private readonly WikidataService           $wikiService,
-        private readonly UrlGeneratorInterface $urlGenerator,
-        private readonly ?SaisClientService     $saisClientService=null,
     )
     {
+
     }
 
     private function getOfficial(Event $event): Official

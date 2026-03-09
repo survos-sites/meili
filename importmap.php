@@ -11,18 +11,15 @@
  *
  * The "importmap:require" command can be used to add new entries to this file.
  */
-
 return [
     'app' => [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
-    // our meili / ez-admin
     'admin' => [
         'path' => './assets/admin.js',
         'entrypoint' => true,
     ],
-    // meili search
     'meili' => [
         'path' => './assets/meili.js',
         'entrypoint' => true,
@@ -34,43 +31,43 @@ return [
         'version' => '3.2.2',
     ],
     'bootstrap' => [
-        'version' => '5.3.7',
+        'version' => '5.3.8',
     ],
     '@popperjs/core' => [
         'version' => '2.11.8',
     ],
     'bootstrap/dist/css/bootstrap.min.css' => [
-        'version' => '5.3.7',
+        'version' => '5.3.8',
         'type' => 'css',
     ],
     'datatables.net-bs5' => [
-        'version' => '2.3.2',
+        'version' => '2.3.7',
     ],
     'jquery' => [
-        'version' => '3.7.1',
+        'version' => '4.0.0',
     ],
     'datatables.net' => [
-        'version' => '2.3.2',
+        'version' => '2.3.7',
     ],
     'datatables.net-bs5/css/dataTables.bootstrap5.min.css' => [
-        'version' => '2.3.2',
+        'version' => '2.3.7',
         'type' => 'css',
     ],
     'axios' => [
-        'version' => '1.10.0',
+        'version' => '1.13.6',
     ],
     'datatables.net-searchpanes-bs5' => [
-        'version' => '2.3.3',
+        'version' => '2.3.5',
     ],
     'datatables.net-searchpanes-bs5/css/searchPanes.bootstrap5.min.css' => [
-        'version' => '2.3.3',
+        'version' => '2.3.5',
         'type' => 'css',
     ],
     'html-prettify' => [
         'version' => '1.0.7',
     ],
     'datatables.net-dt' => [
-        'version' => '2.3.2',
+        'version' => '2.3.7',
     ],
     'simple-datatables' => [
         'version' => '9.2.2',
@@ -79,96 +76,93 @@ return [
         'version' => '9.2.2',
         'type' => 'css',
     ],
-    'twig' => [
-        'version' => '1.17.1',
-    ],
     'locutus/php/strings/sprintf' => [
-        'version' => '2.0.32',
+        'version' => '2.0.16',
     ],
     'locutus/php/strings/vsprintf' => [
-        'version' => '2.0.32',
+        'version' => '2.0.16',
     ],
     'locutus/php/math/round' => [
-        'version' => '2.0.32',
+        'version' => '2.0.16',
     ],
     'locutus/php/math/max' => [
-        'version' => '2.0.32',
+        'version' => '2.0.16',
     ],
     'locutus/php/math/min' => [
-        'version' => '2.0.32',
+        'version' => '2.0.16',
     ],
     'locutus/php/strings/strip_tags' => [
-        'version' => '2.0.32',
+        'version' => '2.0.16',
     ],
     'locutus/php/datetime/strtotime' => [
-        'version' => '2.0.32',
+        'version' => '2.0.16',
     ],
     'locutus/php/datetime/date' => [
-        'version' => '2.0.32',
+        'version' => '2.0.16',
     ],
     'locutus/php/var/boolval' => [
-        'version' => '2.0.32',
+        'version' => '2.0.16',
     ],
     'datatables.net-responsive' => [
-        'version' => '3.0.5',
+        'version' => '3.0.8',
     ],
     'datatables.net-select-bs5' => [
-        'version' => '3.0.1',
+        'version' => '3.1.3',
     ],
     'datatables.net-select-bs5/css/select.bootstrap5.min.css' => [
-        'version' => '3.0.1',
+        'version' => '3.1.3',
         'type' => 'css',
     ],
-    'fos-routing' => [
-        'version' => '0.0.6',
+    '@survos/js-twig/generated/fos_routes.js' => [
+        'path' => './var/js_twig_bundle/generated/fos_routes.js',
     ],
     '@fortawesome/fontawesome-free' => [
-        'version' => '6.7.2',
+        'version' => '7.2.0',
     ],
     '@fortawesome/fontawesome-free/css/fontawesome.min.css' => [
-        'version' => '6.7.2',
+        'version' => '7.2.0',
         'type' => 'css',
     ],
     '@fortawesome/free-solid-svg-icons' => [
-        'version' => '6.7.2',
+        'version' => '7.2.0',
     ],
     '@fortawesome/fontawesome-svg-core' => [
-        'version' => '6.7.2',
+        'version' => '7.2.0',
     ],
     '@fortawesome/fontawesome-svg-core/styles.min.css' => [
-        'version' => '6.7.2',
+        'version' => '7.2.0',
         'type' => 'css',
     ],
     'bootswatch/dist/cerulean/bootstrap.min.css' => [
-        'version' => '5.3.7',
+        'version' => '5.3.8',
         'type' => 'css',
     ],
     'bootswatch/dist/sandstone/bootstrap.min.css' => [
-        'version' => '5.3.7',
+        'version' => '5.3.8',
         'type' => 'css',
     ],
     'bootswatch/dist/materia/bootstrap.min.css' => [
-        'version' => '5.3.7',
+        'version' => '5.3.8',
         'type' => 'css',
     ],
     'datatables.net-plugins/i18n/en-GB.mjs' => [
-        'version' => '2.3.0',
+        'version' => '2.3.6',
     ],
     'datatables.net-buttons-bs5' => [
-        'version' => '3.2.4',
+        'version' => '3.2.6',
     ],
     'datatables.net-buttons' => [
-        'version' => '3.2.4',
+        'version' => '3.2.6',
     ],
     'datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css' => [
-        'version' => '3.2.4',
+        'version' => '3.2.6',
         'type' => 'css',
     ],
     'datatables.net-responsive-bs5' => [
-        'version' => '3.0.5',
+        'version' => '3.0.8',
     ],
     'datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css' => [
-        'version' => '3.0.5',
+        'version' => '3.0.8',
         'type' => 'css',
     ],
     'datatables.net-scroller-bs5' => [
@@ -182,10 +176,10 @@ return [
         'type' => 'css',
     ],
     'datatables.net-select' => [
-        'version' => '3.0.1',
+        'version' => '3.1.3',
     ],
     'datatables.net-searchpanes' => [
-        'version' => '2.3.3',
+        'version' => '2.3.5',
     ],
     'perfect-scrollbar' => [
         'version' => '1.5.6',
@@ -195,33 +189,33 @@ return [
         'type' => 'css',
     ],
     'datatables.net-searchbuilder-bs5' => [
-        'version' => '1.8.3',
+        'version' => '1.8.4',
     ],
     'datatables.net-searchbuilder' => [
-        'version' => '1.8.3',
+        'version' => '1.8.4',
     ],
     'datatables.net-searchbuilder-bs5/css/searchBuilder.bootstrap5.min.css' => [
-        'version' => '1.8.3',
+        'version' => '1.8.4',
         'type' => 'css',
     ],
     'datatables.net-dt/css/dataTables.dataTables.min.css' => [
-        'version' => '2.3.2',
+        'version' => '2.3.7',
         'type' => 'css',
     ],
     'bootstrap/js/dist/modal' => [
-        'version' => '5.3.7',
+        'version' => '5.3.8',
     ],
     'imposterjs' => [
         'version' => '1.0.9',
     ],
     'dexie' => [
-        'version' => '4.0.11',
+        'version' => '4.3.0',
     ],
     'datatables.net-plugins/i18n/es-ES.mjs' => [
-        'version' => '2.3.0',
+        'version' => '2.3.6',
     ],
     'datatables.net-plugins/i18n/de-DE.mjs' => [
-        'version' => '2.3.0',
+        'version' => '2.3.6',
     ],
     '@tabler/core' => [
         'version' => '1.4.0',
@@ -250,28 +244,28 @@ return [
         'type' => 'css',
     ],
     'instantsearch.js' => [
-        'version' => '4.86.1',
+        'version' => '4.90.0',
     ],
     '@algolia/events' => [
         'version' => '4.0.1',
     ],
     'algoliasearch-helper' => [
-        'version' => '3.27.0',
+        'version' => '3.28.0',
     ],
     'qs' => [
-        'version' => '6.14.1',
+        'version' => '6.15.0',
     ],
     'algoliasearch-helper/types/algoliasearch.js' => [
-        'version' => '3.27.0',
+        'version' => '3.28.0',
     ],
     'instantsearch.js/es/widgets' => [
-        'version' => '4.86.1',
+        'version' => '4.90.0',
     ],
     'instantsearch-ui-components' => [
-        'version' => '0.16.0',
+        'version' => '0.20.0',
     ],
     'preact' => [
-        'version' => '10.28.1',
+        'version' => '10.28.4',
     ],
     'hogan.js' => [
         'version' => '3.0.2',
@@ -280,42 +274,42 @@ return [
         'version' => '3.1.1',
     ],
     'preact/hooks' => [
-        'version' => '10.28.1',
+        'version' => '10.28.4',
     ],
     '@babel/runtime/helpers/extends' => [
-        'version' => '7.28.4',
+        'version' => '7.28.6',
     ],
     '@babel/runtime/helpers/defineProperty' => [
-        'version' => '7.28.4',
+        'version' => '7.28.6',
     ],
     '@babel/runtime/helpers/objectWithoutProperties' => [
-        'version' => '7.28.4',
+        'version' => '7.28.6',
     ],
     'htm' => [
         'version' => '3.1.1',
     ],
     '@meilisearch/instant-meilisearch' => [
-        'version' => '0.29.0',
+        'version' => '0.29.1',
     ],
     'meilisearch' => [
         'version' => '0.54.0',
     ],
     'pretty-print-json' => [
-        'version' => '3.0.5',
+        'version' => '3.0.7',
     ],
     'pretty-print-json/dist/css/pretty-print-json.min.css' => [
-        'version' => '3.0.5',
+        'version' => '3.0.7',
         'type' => 'css',
     ],
     'instantsearch.css/themes/algolia.min.css' => [
-        'version' => '8.5.1',
+        'version' => '8.11.0',
         'type' => 'css',
     ],
     '@stimulus-components/dialog' => [
         'version' => '1.0.1',
     ],
     '@andypf/json-viewer' => [
-        'version' => '2.2.0',
+        'version' => '2.2.1',
     ],
     'side-channel' => [
         'version' => '1.1.0',
@@ -324,7 +318,7 @@ return [
         'version' => '1.3.0',
     ],
     'object-inspect' => [
-        'version' => '1.13.3',
+        'version' => '1.13.4',
     ],
     'side-channel-list' => [
         'version' => '1.0.0',
@@ -336,10 +330,10 @@ return [
         'version' => '1.0.2',
     ],
     'get-intrinsic' => [
-        'version' => '1.2.5',
+        'version' => '1.3.0',
     ],
     'call-bound' => [
-        'version' => '1.0.2',
+        'version' => '1.0.4',
     ],
     'es-errors' => [
         'version' => '1.3.0',
@@ -369,13 +363,13 @@ return [
         'version' => '1.1.0',
     ],
     'dunder-proto/get' => [
-        'version' => '1.0.0',
+        'version' => '1.0.1',
     ],
     'call-bind-apply-helpers/functionApply' => [
-        'version' => '1.0.0',
+        'version' => '1.0.2',
     ],
     'call-bind-apply-helpers/functionCall' => [
-        'version' => '1.0.0',
+        'version' => '1.0.2',
     ],
     'function-bind' => [
         'version' => '1.1.2',
@@ -387,13 +381,13 @@ return [
         'version' => '1.0.8',
     ],
     'call-bind-apply-helpers' => [
-        'version' => '1.0.0',
+        'version' => '1.0.2',
     ],
     'set-function-length' => [
         'version' => '1.2.2',
     ],
     'call-bind-apply-helpers/applyBind' => [
-        'version' => '1.0.0',
+        'version' => '1.0.2',
     ],
     'define-data-property' => [
         'version' => '1.1.4',
@@ -444,51 +438,117 @@ return [
         'version' => '2.1.3',
     ],
     'ai' => [
-        'version' => '5.0.117',
+        'version' => '6.0.116',
     ],
     '@babel/runtime/helpers/typeof' => [
-        'version' => '7.28.4',
+        'version' => '7.28.6',
     ],
     '@babel/runtime/helpers/slicedToArray' => [
-        'version' => '7.28.4',
+        'version' => '7.28.6',
     ],
     '@babel/runtime/helpers/toConsumableArray' => [
-        'version' => '7.28.4',
+        'version' => '7.28.6',
     ],
     'markdown-to-jsx' => [
-        'version' => '7.7.17',
+        'version' => '9.7.8',
     ],
     '@ai-sdk/gateway' => [
-        'version' => '2.0.24',
+        'version' => '3.0.66',
     ],
     '@ai-sdk/provider-utils' => [
-        'version' => '3.0.20',
+        'version' => '4.0.19',
     ],
     '@ai-sdk/provider' => [
-        'version' => '2.0.1',
+        'version' => '3.0.8',
     ],
     'zod/v4' => [
-        'version' => '4.2.1',
+        'version' => '4.3.6',
     ],
     '@opentelemetry/api' => [
         'version' => '1.9.0',
     ],
     'react' => [
-        'version' => '19.2.0',
+        'version' => '19.2.4',
     ],
     '@vercel/oidc' => [
-        'version' => '3.0.5',
+        'version' => '3.2.0',
     ],
     'eventsource-parser/stream' => [
         'version' => '3.0.6',
     ],
     'zod/v3' => [
-        'version' => '4.2.1',
+        'version' => '4.3.6',
     ],
     '@standard-schema/spec' => [
         'version' => '1.1.0',
     ],
     'chart.js' => [
-        'version' => '3.9.1',
+        'version' => '4.5.1',
+    ],
+    '@swc/helpers/cjs/_sliced_to_array.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_to_consumable_array.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_define_property.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_extends.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_object_destructuring_empty.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_object_spread.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_object_spread_props.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_type_of.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_instanceof.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_object_without_properties.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_call_super.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_class_call_check.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_create_class.cjs' => [
+        'version' => '0.5.19',
+    ],
+    '@swc/helpers/cjs/_inherits.cjs' => [
+        'version' => '0.5.19',
+    ],
+    'markdown-to-jsx/entities' => [
+        'version' => '9.7.8',
+    ],
+    'zod' => [
+        'version' => '4.3.6',
+    ],
+    '@kurkle/color' => [
+        'version' => '0.4.0',
+    ],
+    '@tacman1123/twig-browser' => [
+        'path' => 'twig-browser/src/index.js',
+    ],
+    '@tacman1123/twig-browser/adapters/symfony' => [
+        'path' => 'twig-browser/adapters/symfony/installSymfonyTwigAPI.js',
+    ],
+    '@tacman1123/twig-browser/src/compat/compileTwigBlocks.js' => [
+        'path' => 'twig-browser/src/compat/compileTwigBlocks.js',
+    ],
+    'twig' => [
+        'version' => '1.17.1',
+    ],
+    'fos-routing' => [
+        'version' => '0.0.6',
     ],
 ];

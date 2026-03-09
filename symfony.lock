@@ -1,11 +1,11 @@
 {
-    "api-platform/core": {
-        "version": "4.1",
+    "api-platform/symfony": {
+        "version": "4.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
             "version": "4.0",
-            "ref": "cb9e6b8ceb9b62f32d41fc8ad72a25d5bd674c6d"
+            "ref": "e9952e9f393c2d048f10a78f272cd35e807d972b"
         },
         "files": [
             "config/packages/api_platform.yaml",
@@ -281,6 +281,9 @@
     "survos/import-bundle": {
         "version": "2.0.58"
     },
+    "survos/js-twig-bundle": {
+        "version": "2.0.124"
+    },
     "survos/jsonl-bundle": {
         "version": "2.0.55"
     },
@@ -311,6 +314,30 @@
     },
     "survos/wiki-bundle": {
         "version": "1.5.124"
+    },
+    "symfony/ai-bundle": {
+        "version": "0.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "0.1",
+            "ref": "917b2a3da78a22e9488e99e1847d1f019d18da76"
+        },
+        "files": [
+            "config/packages/ai.yaml"
+        ]
+    },
+    "symfony/ai-open-ai-platform": {
+        "version": "0.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "0.1",
+            "ref": "4f925d48b69c145cde2286e2cabfc7bd5eb4aca9"
+        },
+        "files": [
+            "config/packages/ai_open_ai_platform.yaml"
+        ]
     },
     "symfony/asset-mapper": {
         "version": "7.3",
@@ -428,6 +455,9 @@
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
+    },
+    "symfony/mcp-bundle": {
+        "version": "v0.6.0"
     },
     "symfony/messenger": {
         "version": "6.4",

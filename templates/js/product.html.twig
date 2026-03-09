@@ -60,24 +60,30 @@
     </div>
 
     <div class="card-footer bg-transparent border-0 d-flex justify-content-between align-items-center flex-wrap gap-2">
-        {# we know the pk! #}
-        {# AI Agent: Don't modify this, it triggers a nice debug pop-up and works as it should. #}
         {% set pkVal = attribute(hit, _config.primaryKey|default('id')) %}
+
+        {# JSON debug pop-up — keep as-is #}
         <button
                 {{ stimulus_action(globals._sc_modal, 'modal') }}
                 data-hit-id="{{ pkVal }}"
-                class="btn btn-sm btn-primary d-inline-flex align-items-center gap-1"
+                class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center gap-1"
                 title="View JSON details">
             {{ ux_icon('json')|raw }}
-            <span class="ms-1">Details {{ pkVal }}</span>
         </button>
 
-        {# if there's something that looks like a citation or a link back to the original source, let's add it here. #}
+        {# Show details in the right-hand panel (chat) or offcanvas (insta) #}
+        <button
+                class="btn btn-sm btn-primary d-inline-flex align-items-center gap-1"
+                data-show-detail="1"
+                data-hit-id="{{ pkVal }}"
+                title="Show details">
+            Show details
+        </button>
+
         {% if hit.url ?? false %}
             <a href="{{ hit.url }}" target="_blank" rel="noreferrer" class="btn btn-sm btn-outline-secondary">
                 🔗 Open
             </a>
         {% endif %}
-        {# we can put a limited about of facets in the footer, or some other fields #}
     </div>
 </div>

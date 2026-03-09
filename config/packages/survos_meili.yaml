@@ -16,6 +16,21 @@ survos_meili:
     searchKey: '%env(default::MEILI_SEARCH_KEY)%'
     multiLingual: false
     translationStyle: off # off, simple/key, compound (label/info)?  per-index? do we need a translation domain?
+
+    chat:
+        workspaces:
+            meili_assistant:
+                source: openAi
+                apiKey: '%env(OPENAI_API_KEY)%'
+                model: gpt-4o-mini
+                label: Product Catalog
+                detailUrlPattern: '/product/{id}'
+                examples:
+                    - cheapest wireless headphones
+                    - gifts for a tech executive under $50
+                    - highly rated kitchen appliances
+                    - blue running shoes in stock
+
     embedders:
         product:
             <<: *openai_large

@@ -6,7 +6,9 @@ ux_icons:
     Marvel: openmoji:superhero
     Car: mdi:car
   default_icon_attributes:
-    width: 30px
+    width: 16px
+    height: 16px
+
       # Default:
     fill:                currentColor
 

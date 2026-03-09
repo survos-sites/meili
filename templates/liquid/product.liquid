@@ -2,7 +2,7 @@
 {% if doc.category %} - {{ doc.category }} product{% endif %}
 {% if doc.price %} Price: ${{ doc.price }}{% endif %}
 {% if doc.brand %} Brand: {{ doc.brand }}{% endif %}
-Description: {{ doc.description }}
+{% if doc.description %}Description: {{ doc.description }}{% endif %}
 {% if doc.tags and doc.tags.size > 0 %}
 Tags:
 {% for t in doc.tags %}{{ t }}{% if forloop.last == false %}, {% endif %}{% endfor %}

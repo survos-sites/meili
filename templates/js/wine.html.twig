@@ -55,6 +55,18 @@
             <span class="ms-1">Details {{ pkVal }}</span>
         </button>
 
+        {# Example: open edit form in the detail offcanvas panel.
+           data-detail-url  — URL to fetch (required to trigger the panel)
+           data-detail-title — optional panel header text #}
+        <a
+            data-detail-url="/wine/{{ pkVal }}/edit"
+            data-detail-title="Edit Wine #{{ pkVal }}"
+            class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1"
+            href="/wine/{{ pkVal }}/edit">
+            {{ ux_icon('tabler:pencil')|raw }}
+            Edit
+        </a>
+
         {% if hit.url ?? false %}
             <a href="{{ hit.url }}" target="_blank" rel="noreferrer" class="btn btn-sm btn-outline-secondary">
                 🔗 Open

@@ -1,10 +1,7 @@
 api_platform:
-    title:  Meili Demos API
+    title: Hello API Platform
     version: 1.0.0
     defaults:
         stateless: true
         cache_headers:
             vary: ['Content-Type', 'Authorization', 'Origin']
-        extra_properties:
-            standard_put: true
-            rfc_7807_compliant_errors: true

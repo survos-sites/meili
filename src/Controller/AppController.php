@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class AppController extends AbstractController
 {
 
-    #[Route(path: '/', name: 'app_homepage', options: ['sitemap' => ['priority' => 1]])]
+    #[Route(path: '/home', name: 'app_homepage', options: ['sitemap' => ['priority' => 1]])]
     public function homepage(MeiliService $meiliService): Response
     {
         // testing

@@ -12,7 +12,6 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\QueryParameter;
-use ApiPlatform\Tests\Fixtures\TestBundle\Entity\Field;
 use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -79,23 +78,24 @@ use Doctrine\ORM\Mapping\Column;
     normalizationContext: ['groups' => ['product.read', 'product.details','rp']],
 )]
 
-//#[MeiliIndex(
-//    // serialization groups for the JSON sent to the index
-//    primaryKey: 'sku',
-//    persisted: new Fields(
-//        fields: ['sku', 'stock', 'price', 'title','brand'],
-//        groups: ['product.read', 'product.details', 'product.searchable']
-//    ),
-//    displayed: ['*'],
-//    filterable: new Fields(
-//        fields: self::FILTER_PROPS + self::RANGE_PROPS,
-////        groups: ['product.read','product.details']
-//    ),
-//    sortable: new Fields(
-//        fields: self::SORT_PROPS + ['price'],
-//    ),
-//    embedders: ['product']
-//)]
+#[MeiliIndex(
+    // serialization groups for the JSON sent to the index
+    primaryKey: 'sku',
+    persisted: new Fields(
+        fields: ['sku', 'stock', 'price', 'title','brand'],
+        groups: ['product.read', 'product.details', 'product.searchable']
+    ),
+    displayed: ['*'],
+    filterable: new Fields(
+        fields: [...self::FILTER_PROPS, ...self::RANGE_PROPS, 'price'],
+//        groups: ['product.read','product.details']
+    ),
+    sortable: new Fields(
+        fields: [...self::SORT_PROPS, 'price'],
+    ),
+    embedders: ['product'],
+    chats: ['meili_assistant'],
+)]
 class Product implements RouteParametersInterface
 {
     use RouteParametersTrait;
@@ -160,7 +160,7 @@ class Product implements RouteParametersInterface
         get => round($this->data['price']??0);
     }
 
-    #[ORM\Column(type: Types::SMALLFLOAT, nullable: true)]
+    #[ORM\Column(type: Types::FLOAT, nullable: true)]
     #[ApiProperty("exact price, float, for doctrine filters")]
     public ?float $exactPrice;
 
@@ -177,7 +177,7 @@ class Product implements RouteParametersInterface
     #[Groups(['product.read'])]
     #[ApiProperty("rounded rating, for range slider")]
     #[ORM\Column(type: Types::INTEGER)]
-    #[Facet()]
+    #[Facet(returnInChat: false)]
     public int $stock;
 
     #[Groups(['product.read'])]
@@ -219,10 +219,10 @@ class Product implements RouteParametersInterface
     }
 
         #[Column(type: Types::TEXT, nullable: true)]
-        private(set) ?string $title = null;
+        public ?string $title = null;
 
         #[Column(type: Types::TEXT, nullable: true)]
-        private ?string $description = null;
+        public ?string $description = null;
 
         public ?string $snippet { get => mb_substr($this->description, 0, 40); }
 }

@@ -13,6 +13,18 @@
                 "fetch": "eager"
             }
         },
+        "@survos/js-twig-bundle": {
+            "dexie": {
+                "enabled": true,
+                "fetch": "eager",
+                "autoimport": []
+            },
+            "js_twig": {
+                "enabled": true,
+                "fetch": "lazy",
+                "autoimport": []
+            }
+        },
         "@survos/meili-bundle": {
             "insta": {
                 "enabled": true,
