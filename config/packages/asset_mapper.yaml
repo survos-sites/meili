@@ -5,8 +5,8 @@ framework:
             'assets/': ''
             # DEV ONLY: serve twig-browser from local source to skip CDN publish cycle.
             # Revert these lines (and restore version: entries in importmap.php) before next npm publish.
-            '/home/tac/g/tacman/twig-browser/src': 'twig-browser/src'
-            '/home/tac/g/tacman/twig-browser/adapters': 'twig-browser/adapters'
+#            '/home/tac/g/tacman/twig-browser/src': 'twig-browser/src'
+#            '/home/tac/g/tacman/twig-browser/adapters': 'twig-browser/adapters'
         missing_import_mode: warn
 
 when@prod:
