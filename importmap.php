@@ -31,13 +31,13 @@ return [
         'path' => './var/js_twig_bundle/generated/fos_routes.js',
     ],
     '@tacman1123/twig-browser' => [
-        'version' => '0.4.9',
+        'version' => '0.4.10',
     ],
     '@tacman1123/twig-browser/adapters/symfony' => [
-        'version' => '0.4.9',
+        'version' => '0.4.10',
     ],
     '@tacman1123/twig-browser/src/compat/compileTwigBlocks.js' => [
-        'version' => '0.4.9',
+        'version' => '0.4.10',
     ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
@@ -82,38 +82,38 @@ return [
         'version' => '2.3.7',
     ],
     'simple-datatables' => [
-        'version' => '9.2.2',
+        'version' => '10.2.0',
     ],
     'simple-datatables/dist/style.min.css' => [
-        'version' => '9.2.2',
+        'version' => '10.2.0',
         'type' => 'css',
     ],
     'locutus/php/strings/sprintf' => [
-        'version' => '3.0.9',
+        'version' => '3.0.10',
     ],
     'locutus/php/strings/vsprintf' => [
-        'version' => '3.0.9',
+        'version' => '3.0.10',
     ],
     'locutus/php/math/round' => [
-        'version' => '3.0.9',
+        'version' => '3.0.10',
     ],
     'locutus/php/math/max' => [
-        'version' => '3.0.9',
+        'version' => '3.0.10',
     ],
     'locutus/php/math/min' => [
-        'version' => '3.0.9',
+        'version' => '3.0.10',
     ],
     'locutus/php/strings/strip_tags' => [
-        'version' => '3.0.9',
+        'version' => '3.0.10',
     ],
     'locutus/php/datetime/strtotime' => [
-        'version' => '3.0.9',
+        'version' => '3.0.10',
     ],
     'locutus/php/datetime/date' => [
-        'version' => '3.0.9',
+        'version' => '3.0.10',
     ],
     'locutus/php/var/boolval' => [
-        'version' => '3.0.9',
+        'version' => '3.0.10',
     ],
     'datatables.net-responsive' => [
         'version' => '3.0.8',
@@ -298,10 +298,10 @@ return [
         'version' => '3.1.1',
     ],
     '@meilisearch/instant-meilisearch' => [
-        'version' => '0.29.1',
+        'version' => '0.30.0',
     ],
     'meilisearch' => [
-        'version' => '0.54.0',
+        'version' => '0.55.0',
     ],
     'pretty-print-json' => [
         'version' => '3.0.7',

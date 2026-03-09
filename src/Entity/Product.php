@@ -103,7 +103,7 @@ class Product implements RouteParametersInterface
     private const RANGE_PROPS = ['rating', 'stock']; // // meili will also add RANGE_PROPS as filterable
     private const FILTER_PROPS = ['category','brand']; // single values only without custom filter
     private const FILTER_ARRAY_PROPS = ['tags']; // meili can handle these
-    private const SEARCH_PROPS = ['titleBacking', 'descriptionBacking'];
+    private const SEARCH_PROPS = ['title', 'description'];
     private const SORT_PROPS = ['rating']; // price for meili, , 'exactPrice' for doctrine
 
 
