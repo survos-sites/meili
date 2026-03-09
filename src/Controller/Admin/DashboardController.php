@@ -2,15 +2,11 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Instrument;
-use App\Entity\Jeopardy;
-use App\Entity\Official;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use Meilisearch\Meilisearch;
 use Survos\MeiliBundle\Service\MeiliService;
 use Symfony\Component\HttpFoundation\Response;
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
