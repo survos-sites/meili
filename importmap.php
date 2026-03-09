@@ -27,6 +27,18 @@ return [
     '@symfony/stimulus-bundle' => [
         'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
     ],
+    '@survos/js-twig/generated/fos_routes.js' => [
+        'path' => './var/js_twig_bundle/generated/fos_routes.js',
+    ],
+    '@tacman1123/twig-browser' => [
+        'version' => '0.4.9',
+    ],
+    '@tacman1123/twig-browser/adapters/symfony' => [
+        'version' => '0.4.9',
+    ],
+    '@tacman1123/twig-browser/src/compat/compileTwigBlocks.js' => [
+        'version' => '0.4.9',
+    ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
     ],
@@ -77,31 +89,31 @@ return [
         'type' => 'css',
     ],
     'locutus/php/strings/sprintf' => [
-        'version' => '2.0.16',
+        'version' => '3.0.9',
     ],
     'locutus/php/strings/vsprintf' => [
-        'version' => '2.0.16',
+        'version' => '3.0.9',
     ],
     'locutus/php/math/round' => [
-        'version' => '2.0.16',
+        'version' => '3.0.9',
     ],
     'locutus/php/math/max' => [
-        'version' => '2.0.16',
+        'version' => '3.0.9',
     ],
     'locutus/php/math/min' => [
-        'version' => '2.0.16',
+        'version' => '3.0.9',
     ],
     'locutus/php/strings/strip_tags' => [
-        'version' => '2.0.16',
+        'version' => '3.0.9',
     ],
     'locutus/php/datetime/strtotime' => [
-        'version' => '2.0.16',
+        'version' => '3.0.9',
     ],
     'locutus/php/datetime/date' => [
-        'version' => '2.0.16',
+        'version' => '3.0.9',
     ],
     'locutus/php/var/boolval' => [
-        'version' => '2.0.16',
+        'version' => '3.0.9',
     ],
     'datatables.net-responsive' => [
         'version' => '3.0.8',
@@ -112,9 +124,6 @@ return [
     'datatables.net-select-bs5/css/select.bootstrap5.min.css' => [
         'version' => '3.1.3',
         'type' => 'css',
-    ],
-    '@survos/js-twig/generated/fos_routes.js' => [
-        'path' => './var/js_twig_bundle/generated/fos_routes.js',
     ],
     '@fortawesome/fontawesome-free' => [
         'version' => '7.2.0',
@@ -309,7 +318,7 @@ return [
         'version' => '1.0.1',
     ],
     '@andypf/json-viewer' => [
-        'version' => '2.2.1',
+        'version' => '2.2.4',
     ],
     'side-channel' => [
         'version' => '1.1.0',
@@ -536,19 +545,10 @@ return [
     '@kurkle/color' => [
         'version' => '0.4.0',
     ],
-    '@tacman1123/twig-browser' => [
-        'path' => 'twig-browser/src/index.js',
-    ],
-    '@tacman1123/twig-browser/adapters/symfony' => [
-        'path' => 'twig-browser/adapters/symfony/installSymfonyTwigAPI.js',
-    ],
-    '@tacman1123/twig-browser/src/compat/compileTwigBlocks.js' => [
-        'path' => 'twig-browser/src/compat/compileTwigBlocks.js',
-    ],
-    'twig' => [
-        'version' => '1.17.1',
-    ],
     'fos-routing' => [
         'version' => '0.0.6',
+    ],
+    'marked' => [
+        'version' => '17.0.4',
     ],
 ];
