@@ -31,13 +31,13 @@ return [
         'path' => './var/js_twig_bundle/generated/fos_routes.js',
     ],
     '@tacman1123/twig-browser' => [
-        'version' => '0.4.10',
+        'version' => '0.4.12',
     ],
     '@tacman1123/twig-browser/adapters/symfony' => [
-        'version' => '0.4.10',
+        'version' => '0.4.12',
     ],
     '@tacman1123/twig-browser/src/compat/compileTwigBlocks.js' => [
-        'version' => '0.4.10',
+        'version' => '0.4.12',
     ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
@@ -89,31 +89,31 @@ return [
         'type' => 'css',
     ],
     'locutus/php/strings/sprintf' => [
-        'version' => '3.0.10',
+        'version' => '3.0.11',
     ],
     'locutus/php/strings/vsprintf' => [
-        'version' => '3.0.10',
+        'version' => '3.0.11',
     ],
     'locutus/php/math/round' => [
-        'version' => '3.0.10',
+        'version' => '3.0.11',
     ],
     'locutus/php/math/max' => [
-        'version' => '3.0.10',
+        'version' => '3.0.11',
     ],
     'locutus/php/math/min' => [
-        'version' => '3.0.10',
+        'version' => '3.0.11',
     ],
     'locutus/php/strings/strip_tags' => [
-        'version' => '3.0.10',
+        'version' => '3.0.11',
     ],
     'locutus/php/datetime/strtotime' => [
-        'version' => '3.0.10',
+        'version' => '3.0.11',
     ],
     'locutus/php/datetime/date' => [
-        'version' => '3.0.10',
+        'version' => '3.0.11',
     ],
     'locutus/php/var/boolval' => [
-        'version' => '3.0.10',
+        'version' => '3.0.11',
     ],
     'datatables.net-responsive' => [
         'version' => '3.0.8',
@@ -253,7 +253,7 @@ return [
         'type' => 'css',
     ],
     'instantsearch.js' => [
-        'version' => '4.90.0',
+        'version' => '4.91.0',
     ],
     '@algolia/events' => [
         'version' => '4.0.1',
@@ -268,13 +268,13 @@ return [
         'version' => '3.28.0',
     ],
     'instantsearch.js/es/widgets' => [
-        'version' => '4.90.0',
+        'version' => '4.91.0',
     ],
     'instantsearch-ui-components' => [
-        'version' => '0.20.0',
+        'version' => '0.21.0',
     ],
     'preact' => [
-        'version' => '10.28.4',
+        'version' => '10.29.0',
     ],
     'hogan.js' => [
         'version' => '3.0.2',
@@ -283,7 +283,7 @@ return [
         'version' => '3.1.1',
     ],
     'preact/hooks' => [
-        'version' => '10.28.4',
+        'version' => '10.29.0',
     ],
     '@babel/runtime/helpers/extends' => [
         'version' => '7.28.6',
@@ -311,7 +311,7 @@ return [
         'type' => 'css',
     ],
     'instantsearch.css/themes/algolia.min.css' => [
-        'version' => '8.11.0',
+        'version' => '8.12.0',
         'type' => 'css',
     ],
     '@stimulus-components/dialog' => [
@@ -459,7 +459,7 @@ return [
         'version' => '7.28.6',
     ],
     'markdown-to-jsx' => [
-        'version' => '9.7.8',
+        'version' => '9.7.9',
     ],
     '@ai-sdk/gateway' => [
         'version' => '3.0.66',
@@ -537,7 +537,7 @@ return [
         'version' => '0.5.19',
     ],
     'markdown-to-jsx/entities' => [
-        'version' => '9.7.8',
+        'version' => '9.7.9',
     ],
     'zod' => [
         'version' => '4.3.6',
@@ -550,5 +550,8 @@ return [
     ],
     'marked' => [
         'version' => '17.0.4',
+    ],
+    'openseadragon' => [
+        'version' => '6.0.1',
     ],
 ];
