@@ -2692,6 +2692,71 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         },
  *     },
  * }
+ * @psalm-type SurvosTablerConfig = array{
+ *     icons?: array{
+ *         prefix?: scalar|Param|null, // Default: "tabler"
+ *         aliases?: array<string, scalar|Param|null>,
+ *         presets?: array<string, array{ // Default: []
+ *             icon?: scalar|Param|null,
+ *             class?: scalar|Param|null, // Default: ""
+ *         }>,
+ *     },
+ *     app?: array{
+ *         code?: scalar|Param|null, // Default: "my-project"
+ *         title?: scalar|Param|null, // Default: "My Project"
+ *         description?: scalar|Param|null, // Default: ""
+ *         abbr?: scalar|Param|null, // Default: "my<b>Project</b>"
+ *         logo?: scalar|Param|null, // Default: null
+ *         logo_small?: scalar|Param|null, // Default: null
+ *         homepage_route?: scalar|Param|null, // Default: null
+ *         homepage_url?: scalar|Param|null, // Default: null
+ *         links?: array{
+ *             github?: scalar|Param|null, // Default: null
+ *             docs?: scalar|Param|null, // Default: null
+ *             sponsor?: scalar|Param|null, // Default: null
+ *             site?: scalar|Param|null, // Default: null
+ *             contact?: scalar|Param|null, // Default: null
+ *         },
+ *         social?: array<string, scalar|Param|null>,
+ *         meta?: array{
+ *             og_image?: scalar|Param|null, // Default: null
+ *             twitter_site?: scalar|Param|null, // Default: null
+ *             theme_color?: scalar|Param|null, // Default: null
+ *         },
+ *         header?: array{
+ *             locale_switcher?: bool|Param, // Default: true
+ *             container?: scalar|Param|null, // Default: "container-fluid"
+ *             auth?: array{
+ *                 enabled?: bool|Param, // Default: true
+ *                 show_login?: bool|Param, // Default: true
+ *                 show_user_menu?: bool|Param, // Default: true
+ *                 routes?: array{
+ *                     login?: scalar|Param|null, // Default: "app_login"
+ *                     logout?: scalar|Param|null, // Default: "app_logout"
+ *                     register?: scalar|Param|null, // Default: "app_register"
+ *                     profile?: scalar|Param|null, // Default: "app_profile"
+ *                 },
+ *             },
+ *         },
+ *     },
+ *     routes?: array{
+ *         home?: scalar|Param|null, // Default: "app_homepage"
+ *         login?: scalar|Param|null, // Default: null
+ *         logout?: scalar|Param|null, // Default: null
+ *         register?: scalar|Param|null, // Default: null
+ *         profile?: scalar|Param|null, // Default: null
+ *         settings?: scalar|Param|null, // Default: null
+ *         search?: scalar|Param|null, // Default: null
+ *     },
+ *     options?: array{
+ *         theme?: scalar|Param|null, // Default: "tabler"
+ *         layout?: "horizontal"|"dashboard"|"vertical"|"condensed"|Param, // Default: "horizontal"
+ *         dark_mode?: bool|Param, // Default: false
+ *         show_locale_dropdown?: bool|Param, // Default: true
+ *     },
+ *     menu_options?: array<string, scalar|Param|null>,
+ *     impersonate?: array<string, scalar|Param|null>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -2775,6 +2840,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         api_platform?: ApiPlatformConfig,
  *         ai?: AiConfig,
  *         mcp?: McpConfig,
+ *         survos_tabler?: SurvosTablerConfig,
  *     },
  *     "when@never"?: array{
  *         imports?: ImportsConfig,
@@ -2898,6 +2964,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         api_platform?: ApiPlatformConfig,
  *         ai?: AiConfig,
  *         mcp?: McpConfig,
+ *         survos_tabler?: SurvosTablerConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,

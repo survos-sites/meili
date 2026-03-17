@@ -47,4 +47,5 @@ return [
     ApiPlatform\Symfony\Bundle\ApiPlatformBundle::class => ['all' => true],
     Symfony\AI\AiBundle\AiBundle::class => ['all' => true],
     Symfony\AI\McpBundle\McpBundle::class => ['all' => true],
+    Survos\TablerBundle\SurvosTablerBundle::class => ['dev' => true, 'test' => true],
 ];
