@@ -1,0 +1,31 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "mcp": {
+        "chrome-devtools": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "chrome-devtools-mcp@latest"
+            ],
+            "enabled": true,
+            "timeout": 10000
+        },
+        "symfony-mate": {
+            "type": "local",
+            "command": [
+                "php",
+                "/home/tac/g/sites/meili/vendor/bin/mate",
+                "serve"
+            ],
+            "enabled": true,
+            "timeout": 10000
+        },
+        "api-platform": {
+            "type": "remote",
+            "url": "http://127.0.0.1:8000/mcp",
+            "enabled": true,
+            "timeout": 10000
+        }
+    }
+}
