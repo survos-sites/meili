@@ -92,7 +92,6 @@ use Doctrine\ORM\Mapping\Column;
         fields: [...self::SORT_PROPS, 'price'],
     ),
     embedders: ['product'],
-    chats: ['meili_assistant'],
 )]
 class Product implements RouteParametersInterface
 {

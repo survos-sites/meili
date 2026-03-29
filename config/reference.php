@@ -1916,9 +1916,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             apiVersion?: scalar|Param|null, // Default: null
  *             deploymentId?: scalar|Param|null, // Default: null
  *             label?: scalar|Param|null, // Human-readable label used in dynamic prompts (defaults to indexName) // Default: null
+ *             curatorName?: scalar|Param|null, // Optional explicit curator display name for this workspace template // Default: null
+ *             curatorNameByIndex?: list<scalar|Param|null>,
  *             detailUrlPattern?: scalar|Param|null, // URL pattern for item detail pages; use {id} as placeholder e.g. /product/{id} // Default: null
  *             schemaUrl?: scalar|Param|null, // Optional OpenAPI schema URL used to explain field meanings in collection overview responses // Default: null
  *             examples?: list<scalar|Param|null>,
+ *             examplesByIndex?: list<list<scalar|Param|null>>,
  *             prompts?: array{ // Static prompt overrides — these win over dynamic template rendering
  *                 system?: scalar|Param|null, // Default: null
  *                 searchFilterParam?: scalar|Param|null, // Default: null
