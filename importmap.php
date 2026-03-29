@@ -31,13 +31,13 @@ return [
         'path' => './var/js_twig_bundle/generated/fos_routes.js',
     ],
     '@tacman1123/twig-browser' => [
-        'version' => '0.4.12',
+        'version' => '0.4.18',
     ],
     '@tacman1123/twig-browser/adapters/symfony' => [
-        'version' => '0.4.12',
+        'version' => '0.4.18',
     ],
     '@tacman1123/twig-browser/src/compat/compileTwigBlocks.js' => [
-        'version' => '0.4.12',
+        'version' => '0.4.18',
     ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
@@ -66,7 +66,7 @@ return [
         'type' => 'css',
     ],
     'axios' => [
-        'version' => '1.13.6',
+        'version' => '1.14.0',
     ],
     'datatables.net-searchpanes-bs5' => [
         'version' => '2.3.5',
@@ -82,38 +82,38 @@ return [
         'version' => '2.3.7',
     ],
     'simple-datatables' => [
-        'version' => '9.2.2',
+        'version' => '10.2.0',
     ],
     'simple-datatables/dist/style.min.css' => [
-        'version' => '9.2.2',
+        'version' => '10.2.0',
         'type' => 'css',
     ],
     'locutus/php/strings/sprintf' => [
-        'version' => '3.0.11',
+        'version' => '3.0.32',
     ],
     'locutus/php/strings/vsprintf' => [
-        'version' => '3.0.11',
+        'version' => '3.0.32',
     ],
     'locutus/php/math/round' => [
-        'version' => '3.0.11',
+        'version' => '3.0.32',
     ],
     'locutus/php/math/max' => [
-        'version' => '3.0.11',
+        'version' => '3.0.32',
     ],
     'locutus/php/math/min' => [
-        'version' => '3.0.11',
+        'version' => '3.0.32',
     ],
     'locutus/php/strings/strip_tags' => [
-        'version' => '3.0.11',
+        'version' => '3.0.32',
     ],
     'locutus/php/datetime/strtotime' => [
-        'version' => '3.0.11',
+        'version' => '3.0.32',
     ],
     'locutus/php/datetime/date' => [
-        'version' => '3.0.11',
+        'version' => '3.0.32',
     ],
     'locutus/php/var/boolval' => [
-        'version' => '3.0.11',
+        'version' => '3.0.32',
     ],
     'datatables.net-responsive' => [
         'version' => '3.0.8',
@@ -215,10 +215,10 @@ return [
         'version' => '5.3.8',
     ],
     'imposterjs' => [
-        'version' => '1.0.9',
+        'version' => '1.0.13',
     ],
     'dexie' => [
-        'version' => '4.3.0',
+        'version' => '4.4.1',
     ],
     'datatables.net-plugins/i18n/es-ES.mjs' => [
         'version' => '2.3.6',
@@ -253,25 +253,25 @@ return [
         'type' => 'css',
     ],
     'instantsearch.js' => [
-        'version' => '4.91.0',
+        'version' => '4.92.1',
     ],
     '@algolia/events' => [
         'version' => '4.0.1',
     ],
     'algoliasearch-helper' => [
-        'version' => '3.28.0',
+        'version' => '3.28.1',
     ],
     'qs' => [
         'version' => '6.15.0',
     ],
     'algoliasearch-helper/types/algoliasearch.js' => [
-        'version' => '3.28.0',
+        'version' => '3.28.1',
     ],
     'instantsearch.js/es/widgets' => [
-        'version' => '4.91.0',
+        'version' => '4.92.1',
     ],
     'instantsearch-ui-components' => [
-        'version' => '0.21.0',
+        'version' => '0.22.1',
     ],
     'preact' => [
         'version' => '10.29.0',
@@ -286,22 +286,22 @@ return [
         'version' => '10.29.0',
     ],
     '@babel/runtime/helpers/extends' => [
-        'version' => '7.28.6',
+        'version' => '7.29.2',
     ],
     '@babel/runtime/helpers/defineProperty' => [
-        'version' => '7.28.6',
+        'version' => '7.29.2',
     ],
     '@babel/runtime/helpers/objectWithoutProperties' => [
-        'version' => '7.28.6',
+        'version' => '7.29.2',
     ],
     'htm' => [
         'version' => '3.1.1',
     ],
     '@meilisearch/instant-meilisearch' => [
-        'version' => '0.29.1',
+        'version' => '0.30.0',
     ],
     'meilisearch' => [
-        'version' => '0.54.0',
+        'version' => '0.56.0',
     ],
     'pretty-print-json' => [
         'version' => '3.0.7',
@@ -318,7 +318,7 @@ return [
         'version' => '1.0.1',
     ],
     '@andypf/json-viewer' => [
-        'version' => '2.2.4',
+        'version' => '2.3.2',
     ],
     'side-channel' => [
         'version' => '1.1.0',
@@ -447,25 +447,25 @@ return [
         'version' => '2.1.3',
     ],
     'ai' => [
-        'version' => '6.0.116',
+        'version' => '6.0.141',
     ],
     '@babel/runtime/helpers/typeof' => [
-        'version' => '7.28.6',
+        'version' => '7.29.2',
     ],
     '@babel/runtime/helpers/slicedToArray' => [
-        'version' => '7.28.6',
+        'version' => '7.29.2',
     ],
     '@babel/runtime/helpers/toConsumableArray' => [
-        'version' => '7.28.6',
+        'version' => '7.29.2',
     ],
     'markdown-to-jsx' => [
-        'version' => '9.7.9',
+        'version' => '9.7.13',
     ],
     '@ai-sdk/gateway' => [
-        'version' => '3.0.66',
+        'version' => '3.0.83',
     ],
     '@ai-sdk/provider-utils' => [
-        'version' => '4.0.19',
+        'version' => '4.0.21',
     ],
     '@ai-sdk/provider' => [
         'version' => '3.0.8',
@@ -474,7 +474,7 @@ return [
         'version' => '4.3.6',
     ],
     '@opentelemetry/api' => [
-        'version' => '1.9.0',
+        'version' => '1.9.1',
     ],
     'react' => [
         'version' => '19.2.4',
@@ -495,49 +495,49 @@ return [
         'version' => '4.5.1',
     ],
     '@swc/helpers/cjs/_sliced_to_array.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_to_consumable_array.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_define_property.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_extends.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_object_destructuring_empty.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_object_spread.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_object_spread_props.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_type_of.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_instanceof.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_object_without_properties.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_call_super.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_class_call_check.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_create_class.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     '@swc/helpers/cjs/_inherits.cjs' => [
-        'version' => '0.5.19',
+        'version' => '0.5.20',
     ],
     'markdown-to-jsx/entities' => [
-        'version' => '9.7.9',
+        'version' => '9.7.13',
     ],
     'zod' => [
         'version' => '4.3.6',
@@ -549,9 +549,51 @@ return [
         'version' => '0.0.6',
     ],
     'marked' => [
-        'version' => '17.0.4',
+        'version' => '17.0.5',
     ],
     'openseadragon' => [
-        'version' => '6.0.1',
+        'version' => '6.0.2',
+    ],
+    '@swc/helpers/esm/_sliced_to_array.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_to_consumable_array.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_define_property.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_extends.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_object_destructuring_empty.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_object_spread.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_object_spread_props.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_type_of.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_instanceof.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_object_without_properties.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_call_super.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_class_call_check.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_create_class.js' => [
+        'version' => '0.5.20',
+    ],
+    '@swc/helpers/esm/_inherits.js' => [
+        'version' => '0.5.20',
     ],
 ];

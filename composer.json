@@ -17,12 +17,13 @@
         "ext-sodium": "*",
         "ext-sqlite3": "*",
         "ext-zip": "*",
+        "api-platform/core": "*",
         "api-platform/doctrine-orm": "^4.2",
         "api-platform/symfony": "^4.2",
         "doctrine/doctrine-bundle": "^3.0",
         "doctrine/doctrine-migrations-bundle": "^4.0",
         "doctrine/orm": "^3.4.2",
-        "easycorp/easyadmin-bundle": "^4.24",
+        "easycorp/easyadmin-bundle": "^5.0",
         "friendsofsymfony/jsrouting-bundle": "dev-master",
         "halaxa/json-machine": "^1.2",
         "inspector-apm/inspector-symfony": "^1.8",
@@ -34,8 +35,8 @@
         "liquid/liquid": "^1.4",
         "meilisearch/meilisearch-php": "dev-main",
         "nelmio/cors-bundle": "^2.3.1",
-        "openai-php/client": "^0.18.0",
-        "phpdocumentor/reflection-docblock": "^5.2",
+        "openai-php/client": "^0.19.0",
+        "phpdocumentor/reflection-docblock": "^5.2|^6.0",
         "phpmetrics/phpmetrics": "^3.0",
         "phpstan/phpdoc-parser": "^2.3",
         "sentry/sentry-symfony": "^4.12|^5.0",
@@ -133,15 +134,16 @@
     },
     "scripts": {
         "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "fos:js-routing:dump --format=json --target=public/js/fos_js_routes.json": "symfony-cmd",
+            
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "importmap:install": "symfony-cmd"
         },
         "post-install-cmd": [
+            "php -d memory_limit=512M bin/console cache:clear",
             "@auto-scripts"
         ],
         "post-update-cmd": [
+            "php -d memory_limit=512M bin/console cache:clear",
             "@auto-scripts"
         ]
     },
@@ -165,13 +167,15 @@
         "jawira/doctrine-diagram-bundle": "^1.0",
         "nette/php-generator": "^4.1",
         "phpstan/phpstan": "^2.0",
-        "phpunit/phpunit": "^12.1",
+        "phpunit/phpunit": "^13.0",
         "rector/rector": "^2.0",
         "roave/security-advisories": "dev-latest",
         "spaze/phpstan-disallowed-calls": "^4.0",
         "survos/code-bundle": "dev-main",
         "survos/deployment-bundle": "^2.0",
         "survos/tabler-bundle": "^2.0",
+        "symfony/ai-mate": "^0.6.0",
+        "symfony/ai-symfony-mate-extension": "^0.6.0",
         "symfony/browser-kit": "^7.4||^8.0",
         "symfony/css-selector": "^7.4||^8.0",
         "symfony/debug-bundle": "^7.4||^8.0",

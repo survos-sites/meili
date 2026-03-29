@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9e42b3603c28b0cff333058c6e2e85c",
+    "content-hash": "80bda82d74c0a7747e353fa88bdd0801",
     "packages": [
         {
             "name": "symfony/dotenv",
@@ -82,16 +82,16 @@
         },
         {
             "name": "tacman/castor-tools",
-            "version": "1.1.6",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tacman/castor-tools.git",
-                "reference": "85f2eb38d9508afc3f69fdae4ad30c05520771db"
+                "reference": "99877353069dc75f3d84ad57e556c2e88495bee5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tacman/castor-tools/zipball/85f2eb38d9508afc3f69fdae4ad30c05520771db",
-                "reference": "85f2eb38d9508afc3f69fdae4ad30c05520771db",
+                "url": "https://api.github.com/repos/tacman/castor-tools/zipball/99877353069dc75f3d84ad57e556c2e88495bee5",
+                "reference": "99877353069dc75f3d84ad57e556c2e88495bee5",
                 "shasum": ""
             },
             "require": {
@@ -102,6 +102,7 @@
                 "jolicode/castor": "^v1.1.0",
                 "roave/security-advisories": "dev-latest"
             },
+            "default-branch": true,
             "type": "castor-plugin",
             "autoload": {
                 "files": [
@@ -124,15 +125,17 @@
             "description": "Extend castor with some common tools",
             "support": {
                 "issues": "https://github.com/tacman/castor-tools/issues",
-                "source": "https://github.com/tacman/castor-tools/tree/1.1.6"
+                "source": "https://github.com/tacman/castor-tools/tree/main"
             },
-            "time": "2026-03-08T11:21:48+00:00"
+            "time": "2026-03-29T12:23:20+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "tacman/castor-tools": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {},

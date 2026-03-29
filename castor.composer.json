@@ -1,5 +1,5 @@
 {
     "require": {
-        "tacman/castor-tools": "^1.0"
+        "tacman/castor-tools": "dev-main"
     }
 }
