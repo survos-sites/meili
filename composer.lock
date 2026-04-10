@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d5664b57d073baa5c6e452ff63b0e85",
+    "content-hash": "0ac9bec00103a3dd8b9a0ff556b547b0",
     "packages": [
         {
             "name": "adbario/php-dot-notation",
@@ -7405,6 +7405,107 @@
                 }
             ],
             "time": "2026-03-30T11:40:07+00:00"
+        },
+        {
+            "name": "survos/tabler-bundle",
+            "version": "2.0.197",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/survos/tabler-bundle.git",
+                "reference": "efc2740043779ba08a5e8cba3d119428e247526c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/survos/tabler-bundle/zipball/efc2740043779ba08a5e8cba3d119428e247526c",
+                "reference": "efc2740043779ba08a5e8cba3d119428e247526c",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "^3.0",
+                "ext-json": "*",
+                "ext-zip": "*",
+                "knplabs/knp-menu": "^3.0",
+                "knplabs/knp-menu-bundle": "^3.0",
+                "php": "^8.4",
+                "survos/core-bundle": "^2.0",
+                "symfony/config": "^7.4 || ^8.0",
+                "symfony/form": "^7.4 || ^8.0",
+                "symfony/mailer": "^7.4 || ^8.0",
+                "symfony/options-resolver": "^7.4 || ^8.0",
+                "symfony/security-bundle": "^7.4 || ^8.0",
+                "symfony/security-csrf": "^7.4 || ^8.0",
+                "symfony/security-http": "^7.4 || ^8.0",
+                "symfony/string": "^7.4 || ^8.0",
+                "symfony/twig-bundle": "^7.4 || ^8.0",
+                "symfony/ux-icons": "^2.33",
+                "symfony/ux-twig-component": "^2.31",
+                "symfony/validator": "^7.4 || ^8.0",
+                "symfony/yaml": "^7.4 || ^8.0",
+                "twig/intl-extra": "^3.22",
+                "twig/string-extra": "^3.22",
+                "twig/twig": "^3.24"
+            },
+            "require-dev": {
+                "meyfa/php-svg": "^0.16.1",
+                "nette/php-generator": "^4.2",
+                "phpstan/phpstan": "^2.0",
+                "rector/rector": "^2.0",
+                "roave/security-advisories": "dev-latest",
+                "slevomat/coding-standard": "^8",
+                "survos/auth-bundle": "^2.0",
+                "symfony/console": "^7.4 || ^8.0",
+                "symfony/translation": "^8.0"
+            },
+            "suggest": {
+                "monolog/monolog": "Great logger to use, but you can pick any PSR-3 logger you wish.",
+                "php-http/cache-plugin": "When making use of cache, you need to install this plugin.",
+                "psr/cache-implementation": "If you wish to enable caching features, provide an PSR-6 cache implementation.",
+                "psr/log-implementation": "If you wish to enable logging features, provide an PSR-3 logger.",
+                "psr/simple-cache-implementation": "If you wish to enable caching features, provide an PSR-16 cache.",
+                "symfony/cache": "Great cache to use, but you can pick any PSR-6 cache you wish.",
+                "twig/markdown-extra": "use markdown_to_html filter"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "symfony": {
+                    "id": "tabler-bundle.survos.com",
+                    "allow-contrib": "true"
+                },
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Survos\\TablerBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tac Tacelosky",
+                    "email": "tacman@gmail.com"
+                }
+            ],
+            "description": "Add some tools and resources to a Symfony 7.4/8 application, based on Tabler (tabler.io)",
+            "keywords": [
+                "symfony",
+                "symfony-ux"
+            ],
+            "support": {
+                "issues": "https://github.com/survos/tabler-bundle/issues",
+                "source": "https://github.com/survos/tabler-bundle/tree/2.0.197"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/kbond",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-03-30T11:40:08+00:00"
         },
         {
             "name": "survos/wiki-bundle",
@@ -20491,107 +20592,6 @@
                 }
             ],
             "time": "2026-03-23T11:18:51+00:00"
-        },
-        {
-            "name": "survos/tabler-bundle",
-            "version": "2.0.197",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/survos/tabler-bundle.git",
-                "reference": "efc2740043779ba08a5e8cba3d119428e247526c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/survos/tabler-bundle/zipball/efc2740043779ba08a5e8cba3d119428e247526c",
-                "reference": "efc2740043779ba08a5e8cba3d119428e247526c",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "^3.0",
-                "ext-json": "*",
-                "ext-zip": "*",
-                "knplabs/knp-menu": "^3.0",
-                "knplabs/knp-menu-bundle": "^3.0",
-                "php": "^8.4",
-                "survos/core-bundle": "^2.0",
-                "symfony/config": "^7.4 || ^8.0",
-                "symfony/form": "^7.4 || ^8.0",
-                "symfony/mailer": "^7.4 || ^8.0",
-                "symfony/options-resolver": "^7.4 || ^8.0",
-                "symfony/security-bundle": "^7.4 || ^8.0",
-                "symfony/security-csrf": "^7.4 || ^8.0",
-                "symfony/security-http": "^7.4 || ^8.0",
-                "symfony/string": "^7.4 || ^8.0",
-                "symfony/twig-bundle": "^7.4 || ^8.0",
-                "symfony/ux-icons": "^2.33",
-                "symfony/ux-twig-component": "^2.31",
-                "symfony/validator": "^7.4 || ^8.0",
-                "symfony/yaml": "^7.4 || ^8.0",
-                "twig/intl-extra": "^3.22",
-                "twig/string-extra": "^3.22",
-                "twig/twig": "^3.24"
-            },
-            "require-dev": {
-                "meyfa/php-svg": "^0.16.1",
-                "nette/php-generator": "^4.2",
-                "phpstan/phpstan": "^2.0",
-                "rector/rector": "^2.0",
-                "roave/security-advisories": "dev-latest",
-                "slevomat/coding-standard": "^8",
-                "survos/auth-bundle": "^2.0",
-                "symfony/console": "^7.4 || ^8.0",
-                "symfony/translation": "^8.0"
-            },
-            "suggest": {
-                "monolog/monolog": "Great logger to use, but you can pick any PSR-3 logger you wish.",
-                "php-http/cache-plugin": "When making use of cache, you need to install this plugin.",
-                "psr/cache-implementation": "If you wish to enable caching features, provide an PSR-6 cache implementation.",
-                "psr/log-implementation": "If you wish to enable logging features, provide an PSR-3 logger.",
-                "psr/simple-cache-implementation": "If you wish to enable caching features, provide an PSR-16 cache.",
-                "symfony/cache": "Great cache to use, but you can pick any PSR-6 cache you wish.",
-                "twig/markdown-extra": "use markdown_to_html filter"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "symfony": {
-                    "id": "tabler-bundle.survos.com",
-                    "allow-contrib": "true"
-                },
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Survos\\TablerBundle\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tac Tacelosky",
-                    "email": "tacman@gmail.com"
-                }
-            ],
-            "description": "Add some tools and resources to a Symfony 7.4/8 application, based on Tabler (tabler.io)",
-            "keywords": [
-                "symfony",
-                "symfony-ux"
-            ],
-            "support": {
-                "issues": "https://github.com/survos/tabler-bundle/issues",
-                "source": "https://github.com/survos/tabler-bundle/tree/2.0.197"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/kbond",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-03-30T11:40:08+00:00"
         },
         {
             "name": "symfony/ai-mate",
