@@ -982,7 +982,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             use_underscore?: bool|Param, // Default: true
  *             unordered_list_markers?: list<scalar|Param|null>,
  *         },
- *         ...<mixed>
+ *         ...<string, mixed>
  *     },
  * }
  * @psalm-type SecurityConfig = array{
@@ -1540,7 +1540,17 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     clients?: array<string, array<string, mixed>>,
  * }
  * @psalm-type SurvosAuthConfig = array{
+ *     providers?: array<string, array{ // Default: []
+ *         type?: scalar|Param|null, // Default: null
+ *         client_id?: scalar|Param|null, // Default: null
+ *         client_secret?: scalar|Param|null, // Default: null
+ *         scopes?: list<scalar|Param|null>,
+ *         redirect_route?: scalar|Param|null, // Default: null
+ *         redirect_params?: list<scalar|Param|null>,
+ *         use_state?: bool|Param|null, // Default: null
+ *     }>,
  *     new_user_redirect_route?: scalar|Param|null, // Default: "oauth_profile"
+ *     production_url_base?: scalar|Param|null, // Default: null
  *     user_provider?: scalar|Param|null, // Default: null
  *     user_class?: scalar|Param|null, // Default: "App\\Entity\\User"
  * }
@@ -1550,7 +1560,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sqliteFilename?: scalar|Param|null, // Default: "scraper.sqlite"
  * }
  * @psalm-type SurvosSimpleDatatablesConfig = array{
- *     stimulus_controller?: scalar|Param|null, // Default: "@survos/simple-datatables-bundle/table"
+ *     stimulus_controller?: scalar|Param|null, // Default: "@survos/simple-datatables/table"
  *     per_page?: bool|Param, // Default: 10
  *     searchable?: bool|Param, // Default: true
  *     fixed_height?: scalar|Param|null, // Default: true
@@ -1570,6 +1580,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         traces_sampler?: scalar|Param|null,
  *         profiles_sample_rate?: float|Param, // The sampling factor to apply to profiles. A value of 0 will deny sending any profiles, and a value of 1 will send all profiles. Profiles are sampled in relation to traces_sample_rate
  *         enable_logs?: bool|Param,
+ *         log_flush_threshold?: mixed, // Default: null
  *         enable_metrics?: bool|Param, // Default: true
  *         attach_stacktrace?: bool|Param,
  *         attach_metric_code_locations?: bool|Param,
@@ -1579,6 +1590,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         spotlight?: bool|Param,
  *         spotlight_url?: scalar|Param|null,
  *         release?: scalar|Param|null, // Default: "%env(default::SENTRY_RELEASE)%"
+ *         org_id?: int|Param,
  *         server_name?: scalar|Param|null,
  *         ignore_exceptions?: list<scalar|Param|null>,
  *         ignore_transactions?: list<scalar|Param|null>,
@@ -1589,6 +1601,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         before_send_log?: scalar|Param|null,
  *         before_send_metric?: scalar|Param|null,
  *         trace_propagation_targets?: mixed,
+ *         strict_trace_continuation?: bool|Param,
  *         tags?: array<string, scalar|Param|null>,
  *         error_types?: scalar|Param|null,
  *         max_breadcrumbs?: int|Param,
@@ -1613,11 +1626,13 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         enabled?: bool|Param, // Default: true
  *         capture_soft_fails?: bool|Param, // Default: true
  *         isolate_breadcrumbs_by_message?: bool|Param, // Default: false
+ *         isolate_context_by_message?: bool|Param, // Default: false
  *     },
  *     tracing?: bool|array{
  *         enabled?: bool|Param, // Default: true
  *         dbal?: bool|array{
  *             enabled?: bool|Param, // Default: true
+ *             ignore_prepare_spans?: bool|Param, // Default: false
  *             connections?: list<scalar|Param|null>,
  *         },
  *         twig?: bool|array{
@@ -1839,6 +1854,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     messenger?: bool|Param, // Default: true
  *     query?: bool|Param, // Default: true
  *     query_bindings?: bool|Param, // Default: true
+ *     http_client?: bool|Param, // Default: true
  *     templates?: bool|Param, // Default: true
  *     user?: bool|Param, // Default: true
  *     transport?: scalar|Param|null, // Default: "async"
@@ -2249,7 +2265,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             cast_fn?: mixed,
  *             default?: mixed,
  *             filter_class?: mixed,
- *             ...<mixed>
+ *             ...<string, mixed>
  *         }>,
  *         strict_query_parameter_validation?: mixed,
  *         hide_hydra_operation?: mixed,
@@ -2269,7 +2285,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         name?: mixed,
  *         allow_create?: mixed,
  *         item_uri_template?: mixed,
- *         ...<mixed>
+ *         ...<string, mixed>
  *     },
  * }
  * @psalm-type AiConfig = array{
@@ -2316,6 +2332,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             api_key?: string|Param,
  *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
  *         },
+ *         cohere?: array{
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
  *         decart?: array{
  *             api_key?: string|Param,
  *             host?: string|Param, // Default: "https://api.decart.ai/v1"
@@ -2333,7 +2353,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             api_key?: string|Param,
  *             endpoint?: string|Param, // Default: "https://api.elevenlabs.io/v1/"
  *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
- *             api_catalog?: bool|Param, // If set, the ElevenLabs API will be used to build the catalog and retrieve models information, using this option leads to additional HTTP calls
  *         },
  *         failover?: array<string, array{ // Default: []
  *             platforms?: list<scalar|Param|null>,
@@ -2367,10 +2386,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
  *         },
  *         ollama?: array{
- *             endpoint?: string|Param, // Endpoint for Ollama (e.g. "http://127.0.0.1:11434" for local, or a cloud endpoint). If null, the http_client is used as-is and must already be configured with a base URI. // Default: null
- *             api_key?: string|Param, // API key for Ollama Cloud authentication (optional for local usage) // Default: null
+ *             endpoint?: string|Param, // Endpoint for Ollama (e.g. "http://127.0.0.1:11434" for local, or a cloud endpoint). If null, the http_client is used as-is and must already be configured with a base URI.
+ *             api_key?: string|Param, // API key for Ollama Cloud authentication (optional for local usage)
  *             http_client?: string|Param, // Service ID of the HTTP client to use. When "endpoint" is null, this client must be pre-configured (e.g. with a base_uri). // Default: "http_client"
- *             api_catalog?: bool|Param, // If set, the Ollama API will be used to build the catalog and retrieve models information, using this option leads to additional HTTP calls
  *         },
  *         openai?: array{
  *             api_key?: string|Param,
@@ -2433,6 +2451,15 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         keep_tool_messages?: bool|Param, // Keep tool messages in the conversation history // Default: false
  *         include_sources?: bool|Param, // Include sources exposed by tools as part of the tool result metadata // Default: false
  *         fault_tolerant_toolbox?: bool|Param, // Continue the agent run even if a tool call fails // Default: true
+ *         speech?: bool|array{ // Speech (TTS/STT) decorator configuration
+ *             enabled?: bool|Param, // Default: true
+ *             text_to_speech_platform?: string|Param, // Service name of the TTS platform (e.g. ai.platform.elevenlabs). // Default: null
+ *             speech_to_text_platform?: string|Param, // Service name of the STT platform (e.g. ai.platform.openai). // Default: null
+ *             tts_model?: string|Param, // Text-to-speech model name // Default: null
+ *             tts_options?: mixed, // Provider-specific TTS options // Default: []
+ *             stt_model?: string|Param, // Speech-to-text model name // Default: null
+ *             stt_options?: mixed, // Provider-specific STT options // Default: []
+ *         },
  *     }>,
  *     multi_agent?: array<string, array{ // Default: []
  *         orchestrator?: string|Param, // Service ID of the orchestrator agent
@@ -2443,14 +2470,15 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         azuresearch?: array<string, array{ // Default: []
  *             endpoint?: string|Param,
  *             api_key?: string|Param,
- *             index_name?: string|Param,
  *             api_version?: string|Param,
- *             vector_field?: string|Param,
+ *             index_name?: string|Param, // The name of the store will be used if the "index_name" option is not set
+ *             http_client?: string|Param, // Default: "http_client"
+ *             vector_field?: string|Param, // Default: "vector"
  *         }>,
  *         cache?: array<string, array{ // Default: []
  *             service?: string|Param, // Default: "cache.app"
- *             cache_key?: string|Param, // The name of the store will be used if the key is not set
- *             strategy?: string|Param,
+ *             cache_key?: string|Param, // The name of the store will be used if the key is not set.
+ *             strategy?: string|Param, // Default: "cosine"
  *         }>,
  *         chromadb?: array<string, array{ // Default: []
  *             client?: string|Param, // Default: "Codewithkyrian\\ChromaDB\\Client"
@@ -2495,6 +2523,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             setup_options?: array{
  *                 dimensions?: int|Param,
  *             },
+ *             distance?: "cosine"|"euclidean"|"distance"|Param, // Distance metric to use for vector similarity search // Default: "euclidean"
  *         }>,
  *         meilisearch?: array<string, array{ // Default: []
  *             endpoint?: string|Param,
@@ -2594,6 +2623,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             filter?: array<mixed>,
  *             top_k?: int|Param, // Default number of results to return // Default: 3
  *         }>,
+ *         sqlite?: array<string, array{ // Default: []
+ *             dsn?: string|Param,
+ *             connection?: string|Param,
+ *             table_name?: string|Param,
+ *             strategy?: string|Param,
+ *         }>,
  *         supabase?: array<string, array{ // Default: []
  *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
  *             url?: string|Param,
@@ -2625,7 +2660,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         weaviate?: array<string, array{ // Default: []
  *             endpoint?: string|Param,
  *             api_key?: string|Param,
- *             collection?: string|Param,
+ *             http_client?: string|Param, // Default: "http_client"
+ *             collection?: string|Param, // The name of the store will be used if the "collection" is not set
  *         }>,
  *         vektor?: array<string, array{ // Default: []
  *             storage_path?: string|Param, // Default: "%kernel.project_dir%/var/share"
