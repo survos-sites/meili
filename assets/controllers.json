@@ -62,12 +62,6 @@
                 "fetch": "eager"
             }
         },
-        "@survos/tabler-bundle": {
-            "search": {
-                "enabled": true,
-                "fetch": "lazy"
-            }
-        },
         "@symfony/ux-chartjs": {
             "chart": {
                 "enabled": true,
