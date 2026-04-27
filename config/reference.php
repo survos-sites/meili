@@ -1471,34 +1471,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     templating?: bool|Param, // Default: false
  *     default_renderer?: scalar|Param|null, // Default: "twig"
  * }
- * @psalm-type SurvosBootstrapConfig = array{
- *     app?: array{
- *         impersonate?: array<string, scalar|Param|null>,
- *         social?: array<string, scalar|Param|null>,
- *         code?: scalar|Param|null, // project code, default for repo, dokku deployment, etc. // Default: "my-project"
- *         abbr?: scalar|Param|null, // text abbreviation // Default: "my<b>Project</b>"
- *         logo?: scalar|Param|null, // Default: null
- *         logo_small?: scalar|Param|null, // Default: null
- *     },
- *     routes?: array{
- *         home?: scalar|Param|null, // name of the homepage route // Default: "app_homepage"
- *         login?: scalar|Param|null, // name of the login // Default: "app_login"
- *         homepage?: scalar|Param|null, // name of the home routes // Default: "app_homepage"
- *         logout?: scalar|Param|null, // name of the logout route // Default: "app_logout"
- *         offcanvas?: scalar|Param|null, // name of the offcanvas route (e.g. a settings sidebar) // Default: "app_settings"
- *         register?: scalar|Param|null, // name of the register route // Default: "app_register"
- *         search?: scalar|Param|null, // multi-entity search route // Default: false
- *     },
- *     options?: array{
- *         theme?: scalar|Param|null, // theme name // Default: "bootswatch"
- *         layout_direction?: scalar|Param|null, // Default: "horizontal"
- *         offcanvas?: scalar|Param|null, // Offcanvas position (top,bottom,start,end // Default: "end"
- *         allow_login?: bool|Param, // Login route exists // Default: false
- *         show_locale_dropdown?: bool|Param, // Add a locale dropdown to the navbar // Default: false
- *     },
- *     menu_options?: array<string, scalar|Param|null>,
- *     impersonate?: array<string, scalar|Param|null>,
- * }
  * @psalm-type SurvosHtmlPrettifyConfig = array{
  *     indentation_character?: scalar|Param|null, // Default: " "
  * }
@@ -1690,18 +1662,134 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  * }
  * @psalm-type FlysystemConfig = array{
  *     storages?: array<string, array{ // Default: []
- *         adapter: scalar|Param|null,
+ *         adapter?: scalar|Param|null, // DEPRECATED: Use the new config format instead (e.g. "local:" instead of "adapter: local")
  *         options?: list<mixed>,
- *         visibility?: scalar|Param|null, // Default: null
- *         directory_visibility?: scalar|Param|null, // Default: null
- *         retain_visibility?: bool|Param|null, // Default: null
- *         case_sensitive?: bool|Param, // Default: true
- *         disable_asserts?: bool|Param, // Default: false
+ *         asyncaws?: array{
+ *             client?: scalar|Param|null, // The AsyncAws S3 client service name
+ *             bucket?: scalar|Param|null, // The name of the AWS S3 bucket
+ *             prefix?: scalar|Param|null, // Optional path prefix to prepend to all object keys // Default: ""
+ *         },
+ *         aws?: array{
+ *             client?: scalar|Param|null, // The AWS S3 client service name
+ *             bucket?: scalar|Param|null, // The name of the AWS S3 bucket
+ *             prefix?: scalar|Param|null, // Optional path prefix to prepend to all object keys // Default: ""
+ *             options?: list<mixed>,
+ *             streamReads?: bool|Param, // Whether to use streaming for file reads // Default: true
+ *         },
+ *         azure?: array{
+ *             client?: scalar|Param|null, // The Azure Blob Storage client service name
+ *             container?: scalar|Param|null, // The name of the Azure Blob Storage container
+ *             prefix?: scalar|Param|null, // Optional path prefix to prepend to all blob names // Default: ""
+ *         },
+ *         ftp?: array{
+ *             host?: scalar|Param|null, // FTP host
+ *             username?: scalar|Param|null, // FTP username
+ *             password?: scalar|Param|null, // FTP password
+ *             port?: int|Param, // FTP port number // Default: 21
+ *             root?: scalar|Param|null, // FTP root directory // Default: ""
+ *             passive?: bool|Param, // Use passive mode // Default: true
+ *             ssl?: bool|Param, // Use SSL/TLS encryption // Default: false
+ *             timeout?: int|Param, // Connection timeout in seconds // Default: 90
+ *             ignore_passive_address?: scalar|Param|null, // Ignore passive address // Default: null
+ *             utf8?: bool|Param, // Enable UTF8 mode // Default: false
+ *             transfer_mode?: scalar|Param|null, // Transfer mode (FTP_ASCII or FTP_BINARY constante on ftp extension) // Default: null
+ *             system_type?: null|"windows"|"unix"|Param, // FTP system type // Default: null
+ *             timestamps_on_unix_listings_enabled?: bool|Param, // Enable timestamps on Unix listings // Default: false
+ *             recurse_manually?: bool|Param, // Recurse directories manually // Default: true
+ *             use_raw_list_options?: bool|Param|null, // Use raw list options // Default: null
+ *             connectivityChecker?: scalar|Param|null, // Connectivity checker service name // Default: null
+ *             permissions?: array{ // Unix permissions configuration for files and directories
+ *                 file?: array{ // File permissions
+ *                     public?: int|Param, // Public file permissions // Default: 420
+ *                     private?: int|Param, // Private file permissions // Default: 384
+ *                 },
+ *                 dir?: array{ // Directory permissions
+ *                     public?: int|Param, // Public directory permissions // Default: 493
+ *                     private?: int|Param, // Private directory permissions // Default: 448
+ *                 },
+ *             },
+ *         },
+ *         gcloud?: array{
+ *             client?: scalar|Param|null, // The Google Cloud Storage client service name
+ *             bucket?: scalar|Param|null, // The name of the Google Cloud Storage bucket
+ *             prefix?: scalar|Param|null, // Optional path prefix to prepend to all object keys // Default: ""
+ *             visibility_handler?: scalar|Param|null, // Optional visibility handler service name // Default: null
+ *             streamReads?: bool|Param, // Whether to use streaming for file reads // Default: false
+ *         },
+ *         gridfs?: array{
+ *             bucket?: scalar|Param|null, // GridFS bucket service name (if using an existing bucket service) // Default: null
+ *             prefix?: scalar|Param|null, // Optional path prefix to prepend to all file names // Default: ""
+ *             database?: scalar|Param|null, // MongoDB database name // Default: null
+ *             doctrine_connection?: scalar|Param|null, // Doctrine MongoDB connection name (mutually exclusive with mongodb_uri)
+ *             mongodb_uri?: scalar|Param|null, // MongoDB connection URI (mutually exclusive with doctrine_connection)
+ *             mongodb_uri_options?: list<mixed>,
+ *             mongodb_driver_options?: list<mixed>,
+ *         },
+ *         lazy?: array{ // Lazy adapter for runtime storage selection
+ *             source?: scalar|Param|null, // The service name of the storage to use at runtime
+ *         },
+ *         local?: array{
+ *             directory?: scalar|Param|null, // Directory path for local storage
+ *             lock?: int|Param, // Lock flags for file operations // Default: 0
+ *             skip_links?: bool|Param, // Whether to skip symbolic links // Default: false
+ *             lazy_root_creation?: bool|Param, // Whether to create the root directory lazily // Default: false
+ *             permissions?: array{ // Unix permissions configuration for files and directories
+ *                 file?: array{ // File permissions
+ *                     public?: int|Param, // Public file permissions // Default: 420
+ *                     private?: int|Param, // Private file permissions // Default: 384
+ *                 },
+ *                 dir?: array{ // Directory permissions
+ *                     public?: int|Param, // Public directory permissions // Default: 493
+ *                     private?: int|Param, // Private directory permissions // Default: 448
+ *                 },
+ *             },
+ *         },
+ *         memory?: array<mixed>,
+ *         sftp?: array{
+ *             host?: scalar|Param|null, // SFTP host
+ *             username?: scalar|Param|null, // SFTP username
+ *             password?: scalar|Param|null, // SFTP password (optional if using private key) // Default: null
+ *             privateKey?: scalar|Param|null, // Path to private key file or private key content // Default: null
+ *             passphrase?: scalar|Param|null, // Private key passphrase // Default: null
+ *             port?: int|Param, // SFTP port number // Default: 22
+ *             timeout?: int|Param, // Connection timeout in seconds // Default: 90
+ *             hostFingerprint?: scalar|Param|null, // Host fingerprint for verification // Default: null
+ *             connectivityChecker?: scalar|Param|null, // Connectivity checker service name // Default: null
+ *             preferredAlgorithms?: list<mixed>,
+ *             root?: scalar|Param|null, // SFTP root directory // Default: ""
+ *             permissions?: array{ // Unix permissions configuration for files and directories
+ *                 file?: array{ // File permissions
+ *                     public?: int|Param, // Public file permissions // Default: 420
+ *                     private?: int|Param, // Private file permissions // Default: 384
+ *                 },
+ *                 dir?: array{ // Directory permissions
+ *                     public?: int|Param, // Public directory permissions // Default: 493
+ *                     private?: int|Param, // Private directory permissions // Default: 448
+ *                 },
+ *             },
+ *         },
+ *         webdav?: array{
+ *             client?: scalar|Param|null, // The WebDAV client service name
+ *             prefix?: scalar|Param|null, // Optional path prefix to prepend to all paths // Default: ""
+ *             visibility_handling?: "throw"|"ignore"|Param, // How to handle visibility operations // Default: "throw"
+ *             manual_copy?: bool|Param, // Whether to handle copy operations manually // Default: false
+ *             manual_move?: bool|Param, // Whether to handle move operations manually // Default: false
+ *         },
+ *         bunnycdn?: array{
+ *             client?: scalar|Param|null, // The BunnyCDN client service name
+ *             pull_zone?: scalar|Param|null, // The BunnyCDN pull zone name // Default: ""
+ *         },
+ *         service?: scalar|Param|null, // Reference to a custom adapter service (alternative to registered adapter types)
+ *         visibility?: scalar|Param|null, // Default visibility for files // Default: null
+ *         directory_visibility?: scalar|Param|null, // Default visibility for directories // Default: null
+ *         retain_visibility?: scalar|Param|null, // Keeps the original file visibility (public/private) when copying or moving. // Default: null
+ *         case_sensitive?: bool|Param, // Deprecated: The "case_sensitive" option is deprecated and will be removed in 4.0. // Default: true
+ *         disable_asserts?: bool|Param, // Deprecated: The "disable_asserts" option is deprecated and will be removed in 4.0. // Default: false
  *         public_url?: list<scalar|Param|null>,
- *         path_normalizer?: scalar|Param|null, // Default: null
- *         public_url_generator?: scalar|Param|null, // Default: null
- *         temporary_url_generator?: scalar|Param|null, // Default: null
- *         read_only?: bool|Param, // Default: false
+ *         path_normalizer?: scalar|Param|null, // Path normalizer service name (should implement League\Flysystem\PathNormalizer) // Default: null
+ *         public_url_generator?: scalar|Param|null, // For adapter that do not provide public URLs or override adapter capabilities and public_url option, a public URL generator service name can be configured in the main Filesystem configuration (should implement League\Flysystem\PublicUrlGenerator) // Default: null
+ *         temporary_url_generator?: scalar|Param|null, // For adapter that do not provide public URLs or override adapter capabilities, a temporary URL generator service name can be configured in the main Filesystem configuration (should implement League\Flysystem\TemporaryUrlGenerator) // Default: null
+ *         read_only?: bool|Param, // Converts a file system to read-only // Default: false
  *     }>,
  * }
  * @psalm-type LiipImagineConfig = array{
@@ -1976,6 +2064,15 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  * }
  * @psalm-type SurvosImportConfig = array{
  *     dir?: scalar|Param|null, // The default directory for data files // Default: "data"
+ * }
+ * @psalm-type SurvosApiGridConfig = array{
+ *     stimulus_controller?: scalar|Param|null, // The stimulus controller to use, should extend @survos/api-grid/api-grid // Default: "@survos/api-grid/api-grid"
+ *     grid_stimulus_controller?: scalar|Param|null, // Default: "@survos/api-grid/grid"
+ *     meiliHost?: scalar|Param|null, // Default: "%env(MEILI_SERVER)%"
+ *     meiliKey?: scalar|Param|null, // Default: "%env(MEILI_API_KEY)%"
+ *     meiliPrefix?: scalar|Param|null, // Default: "%env(MEILI_PREFIX)%"
+ *     passLocale?: bool|Param, // Default: false
+ *     maxValuesPerFacet?: int|Param, // https://www.meilisearch.com/docs/reference/api/settings#faceting-object // Default: 1000
  * }
  * @psalm-type SurvosJsTwigConfig = array{
  *     debug?: bool|Param, // Default: false
@@ -2831,6 +2928,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         settings?: scalar|Param|null, // Default: null
  *         search?: scalar|Param|null, // Default: null
  *     },
+ *     debug?: array{
+ *         menu_slots?: bool|Param, // Default: false
+ *     },
  *     options?: array{
  *         theme?: scalar|Param|null, // Default: "tabler"
  *         layout?: "horizontal"|"dashboard"|"vertical"|"condensed"|Param, // Default: "horizontal"
@@ -2855,7 +2955,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     twig_component?: TwigComponentConfig,
  *     survos_core?: SurvosCoreConfig,
  *     knp_menu?: KnpMenuConfig,
- *     survos_bootstrap?: SurvosBootstrapConfig,
  *     survos_html_prettify?: SurvosHtmlPrettifyConfig,
  *     nelmio_cors?: NelmioCorsConfig,
  *     knpu_oauth2_client?: KnpuOauth2ClientConfig,
@@ -2874,6 +2973,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     zenstruck_messenger_monitor?: ZenstruckMessengerMonitorConfig,
  *     survos_ez?: SurvosEzConfig,
  *     survos_import?: SurvosImportConfig,
+ *     survos_api_grid?: SurvosApiGridConfig,
  *     survos_js_twig?: SurvosJsTwigConfig,
  *     api_platform?: ApiPlatformConfig,
  *     ai?: AiConfig,
@@ -2896,7 +2996,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_component?: TwigComponentConfig,
  *         survos_core?: SurvosCoreConfig,
  *         knp_menu?: KnpMenuConfig,
- *         survos_bootstrap?: SurvosBootstrapConfig,
  *         survos_html_prettify?: SurvosHtmlPrettifyConfig,
  *         nelmio_cors?: NelmioCorsConfig,
  *         knpu_oauth2_client?: KnpuOauth2ClientConfig,
@@ -2919,6 +3018,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         survos_ez?: SurvosEzConfig,
  *         survos_deployment?: SurvosDeploymentConfig,
  *         survos_import?: SurvosImportConfig,
+ *         survos_api_grid?: SurvosApiGridConfig,
  *         survos_js_twig?: SurvosJsTwigConfig,
  *         api_platform?: ApiPlatformConfig,
  *         ai?: AiConfig,
@@ -2940,7 +3040,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_component?: TwigComponentConfig,
  *         survos_core?: SurvosCoreConfig,
  *         knp_menu?: KnpMenuConfig,
- *         survos_bootstrap?: SurvosBootstrapConfig,
  *         survos_html_prettify?: SurvosHtmlPrettifyConfig,
  *         nelmio_cors?: NelmioCorsConfig,
  *         knpu_oauth2_client?: KnpuOauth2ClientConfig,
@@ -2959,6 +3058,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         zenstruck_messenger_monitor?: ZenstruckMessengerMonitorConfig,
  *         survos_ez?: SurvosEzConfig,
  *         survos_import?: SurvosImportConfig,
+ *         survos_api_grid?: SurvosApiGridConfig,
  *         survos_js_twig?: SurvosJsTwigConfig,
  *         api_platform?: ApiPlatformConfig,
  *         ai?: AiConfig,
@@ -2979,7 +3079,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_component?: TwigComponentConfig,
  *         survos_core?: SurvosCoreConfig,
  *         knp_menu?: KnpMenuConfig,
- *         survos_bootstrap?: SurvosBootstrapConfig,
  *         survos_html_prettify?: SurvosHtmlPrettifyConfig,
  *         nelmio_cors?: NelmioCorsConfig,
  *         knpu_oauth2_client?: KnpuOauth2ClientConfig,
@@ -2999,6 +3098,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         zenstruck_messenger_monitor?: ZenstruckMessengerMonitorConfig,
  *         survos_ez?: SurvosEzConfig,
  *         survos_import?: SurvosImportConfig,
+ *         survos_api_grid?: SurvosApiGridConfig,
  *         survos_js_twig?: SurvosJsTwigConfig,
  *         api_platform?: ApiPlatformConfig,
  *         ai?: AiConfig,
@@ -3020,7 +3120,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_component?: TwigComponentConfig,
  *         survos_core?: SurvosCoreConfig,
  *         knp_menu?: KnpMenuConfig,
- *         survos_bootstrap?: SurvosBootstrapConfig,
  *         survos_html_prettify?: SurvosHtmlPrettifyConfig,
  *         nelmio_cors?: NelmioCorsConfig,
  *         knpu_oauth2_client?: KnpuOauth2ClientConfig,
@@ -3043,6 +3142,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         survos_ez?: SurvosEzConfig,
  *         survos_deployment?: SurvosDeploymentConfig,
  *         survos_import?: SurvosImportConfig,
+ *         survos_api_grid?: SurvosApiGridConfig,
  *         survos_js_twig?: SurvosJsTwigConfig,
  *         api_platform?: ApiPlatformConfig,
  *         ai?: AiConfig,

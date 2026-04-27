@@ -596,4 +596,14 @@ return [
     '@swc/helpers/esm/_inherits.js' => [
         'version' => '0.5.20',
     ],
+    'datatables.net-columncontrol' => [
+        'version' => '1.2.1',
+    ],
+    'datatables.net-columncontrol-bs5' => [
+        'version' => '1.2.1',
+    ],
+    'datatables.net-columncontrol-bs5/css/columnControl.bootstrap5.min.css' => [
+        'version' => '1.2.1',
+        'type' => 'css',
+    ],
 ];

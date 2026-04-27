@@ -1,8 +1,7 @@
-{% extends "@SurvosBootstrap/%s/base.html.twig"|format(theme_option('theme')) %}
+{% extends "@SurvosTabler/layout/base.html.twig" %}
 
      {% block stylesheets %}
-         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/survosbootstrap/bootstrap/style.css') }}">
-         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/survosmeili/style.css') }}">
+{#         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/survosmeili/style.css') }}">#}
 
          {{ parent() }}
      {% endblock %}

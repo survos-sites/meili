@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use App\Repository\WcmaRepository;
 use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;
+use Survos\FieldBundle\Attribute\EntityMeta;
 use Survos\MeiliBundle\Metadata\MeiliIndex;
 
 /**
@@ -23,6 +27,11 @@ use Survos\MeiliBundle\Metadata\MeiliIndex;
 	sortable: self::SORTABLE_FIELDS,
 	searchable: self::SEARCHABLE_FIELDS,
 )]
+#[ApiResource(
+    operations: [new Get(), new GetCollection()],
+    normalizationContext: ['skip_null_values' => true],
+)]
+#[EntityMeta(icon: 'mdi:palette', group: 'Museum')]
 final class Wcma
 {
 	public const FILTERABLE_FIELDS = [

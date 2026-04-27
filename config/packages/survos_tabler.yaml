@@ -1,0 +1,29 @@
+survos_tabler:
+    routes:
+        login: app_login
+        logout: app_logout
+        register: app_register
+        home: app_homepage
+    debug:
+        menu_slots: false
+    options:
+        theme: tabler
+    menu_options:
+        tenant: null
+
+    app:
+        code: meili
+        title: 'Meili Demos'
+        description: ''
+        abbr: Meili<b>Demos</b>
+#        logo: /ScanStationAI-Balanced.png
+        logo_small: null
+        homepage_route: app_homepage
+        homepage_url: null
+        links:
+            github: null
+            docs: null
+            sponsor: null
+            site: null
+            contact: null
+        social: {  }

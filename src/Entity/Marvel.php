@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use App\Repository\MarvelRepository;
 use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;
+use Survos\FieldBundle\Attribute\EntityMeta;
 use Survos\MeiliBundle\Metadata\MeiliIndex;
 
 /**
@@ -17,6 +21,11 @@ use Survos\MeiliBundle\Metadata\MeiliIndex;
  * @profile data/marvel.profile.json
  */
 #[Entity(repositoryClass: MarvelRepository::class)]
+#[ApiResource(
+    operations: [new Get(), new GetCollection()],
+    normalizationContext: ['skip_null_values' => true],
+)]
+#[EntityMeta(icon: 'mdi:shield-account', group: 'Demo')]
 #[MeiliIndex(
     ui: ['icon' => 'Marvel'],
 	primaryKey: 'code',
