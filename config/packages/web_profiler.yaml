@@ -4,7 +4,6 @@ when@dev:
 
     framework:
         profiler:
-            collect_serializer_data: true
 
 when@test:
     framework:

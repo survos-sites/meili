@@ -16,6 +16,7 @@ use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\DependencyInjection\Attribute\Target;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
@@ -72,7 +73,7 @@ class CongressController extends AbstractController
 
 
     #[Route('/{id}', name: 'app_congress_show', methods: ['GET'])]
-    public function show(Official $official, FilesystemOperator $defaultStorage): Response
+    public function show(Official $official, #[Target('defaultStorage')] FilesystemOperator $defaultStorage): Response
     {
 //        foreach ($official->getImageCodes() as $imageCodeData) {
 //            $path = $imageCodeData['code'];

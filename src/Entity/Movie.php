@@ -28,7 +28,7 @@ use Survos\MeiliBundle\Metadata\MeiliIndex;
     operations: [new Get(), new GetCollection()],
     normalizationContext: ['skip_null_values' => true],
 )]
-#[ApiFilter(filterClass: SearchFilter::class, properties: self::SEARCHABLE_FIELDS)]
+#[ApiFilter(filterClass: SearchFilter::class, properties: self::SEARCH_FILTER_FIELDS)]
 #[ApiFilter(filterClass: OrderFilter::class, properties: self::SORTABLE_FIELDS)]
 #[EntityMeta(icon: 'mdi:movie', group: 'Demo')]
 #[MeiliIndex(
@@ -42,6 +42,7 @@ final class Movie
 	public const FILTERABLE_FIELDS = ['tags', 'genres', 'actors', 'characters', 'year', 'votes', 'budget'];
 	public const SORTABLE_FIELDS = ['id', 'year', 'votes', 'budget'];
 	public const SEARCHABLE_FIELDS = ['title','overview'];
+	public const SEARCH_FILTER_FIELDS = ['title' => 'ipartial', 'overview' => 'ipartial'];
 
 	/**
 	 * Profile field "id"

@@ -6281,16 +6281,16 @@
         },
         {
             "name": "survos/api-grid-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosApiGridBundle.git",
-                "reference": "e0c8a9f1c304c9295d940794b104ae0872110c70"
+                "reference": "143a4e8425fd37850bf4e8474696041585e04852"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/SurvosApiGridBundle/zipball/e0c8a9f1c304c9295d940794b104ae0872110c70",
-                "reference": "e0c8a9f1c304c9295d940794b104ae0872110c70",
+                "url": "https://api.github.com/repos/survos/SurvosApiGridBundle/zipball/143a4e8425fd37850bf4e8474696041585e04852",
+                "reference": "143a4e8425fd37850bf4e8474696041585e04852",
                 "shasum": ""
             },
             "require": {
@@ -6365,7 +6365,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosApiGridBundle/issues",
-                "source": "https://github.com/survos/SurvosApiGridBundle/tree/2.1.1"
+                "source": "https://github.com/survos/SurvosApiGridBundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -6373,11 +6373,11 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-10T13:38:59+00:00"
+            "time": "2026-05-10T14:52:31+00:00"
         },
         {
             "name": "survos/atlas-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/atlas-bundle.git",
@@ -6440,7 +6440,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/atlas-bundle/issues",
-                "source": "https://github.com/survos/atlas-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/atlas-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -6452,7 +6452,7 @@
         },
         {
             "name": "survos/auth-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/auth-bundle.git",
@@ -6509,7 +6509,7 @@
             "description": "Helper commands and classes for symfony security",
             "support": {
                 "issues": "https://github.com/survos/auth-bundle/issues",
-                "source": "https://github.com/survos/auth-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/auth-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -6521,7 +6521,7 @@
         },
         {
             "name": "survos/command-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/command-bundle.git",
@@ -6576,7 +6576,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/command-bundle/issues",
-                "source": "https://github.com/survos/command-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/command-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -6588,7 +6588,7 @@
         },
         {
             "name": "survos/core-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/core-bundle.git",
@@ -6647,7 +6647,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/core-bundle/issues",
-                "source": "https://github.com/survos/core-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/core-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -6659,7 +6659,7 @@
         },
         {
             "name": "survos/crawler-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/crawler-bundle.git",
@@ -6720,7 +6720,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/crawler-bundle/issues",
-                "source": "https://github.com/survos/crawler-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/crawler-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -6732,7 +6732,7 @@
         },
         {
             "name": "survos/ez-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/ez-bundle.git",
@@ -6782,7 +6782,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/ez-bundle/issues",
-                "source": "https://github.com/survos/ez-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/ez-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -6798,12 +6798,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/field-bundle.git",
-                "reference": "9dc5e7f357dd7a37f4dd18073d1411fd0621f2b9"
+                "reference": "6cfce637ca01ead995492e44f95f360054777d80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/field-bundle/zipball/9dc5e7f357dd7a37f4dd18073d1411fd0621f2b9",
-                "reference": "9dc5e7f357dd7a37f4dd18073d1411fd0621f2b9",
+                "url": "https://api.github.com/repos/survos/field-bundle/zipball/6cfce637ca01ead995492e44f95f360054777d80",
+                "reference": "6cfce637ca01ead995492e44f95f360054777d80",
                 "shasum": ""
             },
             "require": {
@@ -6854,7 +6854,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/field-bundle/issues",
-                "source": "https://github.com/survos/field-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/field-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -6862,7 +6862,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-10T13:39:18+00:00"
+            "time": "2026-05-10T14:52:34+00:00"
         },
         {
             "name": "survos/html-prettify-bundle",
@@ -6959,7 +6959,7 @@
         },
         {
             "name": "survos/import-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/import-bundle.git",
@@ -7016,7 +7016,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/import-bundle/issues",
-                "source": "https://github.com/survos/import-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/import-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -7028,7 +7028,7 @@
         },
         {
             "name": "survos/js-twig-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/js-twig-bundle.git",
@@ -7075,7 +7075,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/js-twig-bundle/issues",
-                "source": "https://github.com/survos/js-twig-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/js-twig-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -7087,7 +7087,7 @@
         },
         {
             "name": "survos/jsonl-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/jsonl-bundle.git",
@@ -7138,7 +7138,7 @@
             "description": "Fast, concurrent, resumable, strictly-ordered JSONL ingestion utilities for Symfony 7.3 / PHP 8.4",
             "support": {
                 "issues": "https://github.com/survos/jsonl-bundle/issues",
-                "source": "https://github.com/survos/jsonl-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/jsonl-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -7150,7 +7150,7 @@
         },
         {
             "name": "survos/lingua-core",
-            "version": "2.0.220",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/lingua-core.git",
@@ -7183,7 +7183,7 @@
             "description": "Core identity utilities (hash/key calculation and canonicalization) shared across Survos Lingua, Babel, and server implementations.",
             "support": {
                 "issues": "https://github.com/survos/lingua-core/issues",
-                "source": "https://github.com/survos/lingua-core/tree/2.0.220"
+                "source": "https://github.com/survos/lingua-core/tree/2.1.2"
             },
             "funding": [
                 {
@@ -7195,7 +7195,7 @@
         },
         {
             "name": "survos/meili-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/meili-bundle.git",
@@ -7274,7 +7274,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/meili-bundle/issues",
-                "source": "https://github.com/survos/meili-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/meili-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -7286,7 +7286,7 @@
         },
         {
             "name": "survos/scraper-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/scraper-bundle.git",
@@ -7339,7 +7339,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/scraper-bundle/issues",
-                "source": "https://github.com/survos/scraper-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/scraper-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -7351,7 +7351,7 @@
         },
         {
             "name": "survos/simple-datatables-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/simple-datatables-bundle.git",
@@ -7416,7 +7416,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/simple-datatables-bundle/issues",
-                "source": "https://github.com/survos/simple-datatables-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/simple-datatables-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -7428,7 +7428,7 @@
         },
         {
             "name": "survos/state-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/state-bundle.git",
@@ -7503,7 +7503,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/state-bundle/issues",
-                "source": "https://github.com/survos/state-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/state-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -7515,7 +7515,7 @@
         },
         {
             "name": "survos/tabler-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/tabler-bundle.git",
@@ -7604,7 +7604,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/tabler-bundle/issues",
-                "source": "https://github.com/survos/tabler-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/tabler-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -7616,7 +7616,7 @@
         },
         {
             "name": "survos/wiki-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/wiki-bundle.git",
@@ -7663,7 +7663,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/wiki-bundle/issues",
-                "source": "https://github.com/survos/wiki-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/wiki-bundle/tree/2.1.2"
             },
             "funding": [
                 {
@@ -20875,7 +20875,7 @@
         },
         {
             "name": "survos/deployment-bundle",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/deployment-bundle.git",
@@ -20923,7 +20923,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/deployment-bundle/issues",
-                "source": "https://github.com/survos/deployment-bundle/tree/2.1.1"
+                "source": "https://github.com/survos/deployment-bundle/tree/2.1.2"
             },
             "funding": [
                 {

@@ -15,6 +15,7 @@ use Survos\SaisBundle\Service\SaisClientService;
 use Survos\WikiBundle\Service\WikidataService;
 use Survos\WikiBundle\Service\WikiService;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Component\DependencyInjection\Attribute\Target;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -27,7 +28,7 @@ final class FetchWikidataMessageHandler
     public function __construct(
         private WikidataService                                $wikiService,
         private EntityManagerInterface                     $entityManager,
-        private FilesystemOperator                         $defaultStorage,
+        #[Target('defaultStorage')] private FilesystemOperator $defaultStorage,
         private LoggerInterface                            $logger,
         private UrlGeneratorInterface                      $urlGenerator, // could be moved to somewhere else and inject the callback here.
         #[Autowire('%kernel.project_dir%')] private string $projectDir,
