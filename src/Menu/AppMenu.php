@@ -6,21 +6,16 @@ use App\Controller\CongressController;
 use App\Entity\Instrument;
 use App\Entity\Jeopardy;
 use App\Entity\Official;
-use Survos\BootstrapBundle\Event\KnpMenuEvent;
-use Survos\BootstrapBundle\Service\ContextService;
-use Survos\BootstrapBundle\Traits\KnpMenuHelperInterface;
-use Survos\BootstrapBundle\Traits\KnpMenuHelperTrait;
+use Survos\FieldBundle\Registry\EntityMetaRegistry;
+use Survos\TablerBundle\Event\MenuEvent;
+use Survos\TablerBundle\Service\ContextService;
+use Survos\TablerBundle\Traits\KnpMenuHelperInterface;
+use Survos\TablerBundle\Traits\KnpMenuHelperTrait;
 use Survos\MeiliBundle\Service\MeiliService;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
-#[AsEventListener(event: KnpMenuEvent::SIDEBAR_MENU, method: 'sidebarMenu')]
-#[AsEventListener(event: KnpMenuEvent::PAGE_MENU, method: 'pageMenu')]
-#[AsEventListener(event: KnpMenuEvent::NAVBAR_MENU, method: 'startNavbarMenu')]
-#[AsEventListener(event: KnpMenuEvent::NAVBAR_MENU2, method: 'midNavbarMenu')]
-#[AsEventListener(event: KnpMenuEvent::NAVBAR_MENU3, method: 'lastNavbarMenu')]
-#[AsEventListener(event: KnpMenuEvent::FOOTER_MENU, method: 'footerMenu')]
 final class AppMenu implements KnpMenuHelperInterface
 {
     use KnpMenuHelperTrait;
@@ -29,12 +24,14 @@ final class AppMenu implements KnpMenuHelperInterface
         private ContextService                 $contextService,
         #[Autowire('%kernel.environment%')] protected string $env,
         private MeiliService $meiliService,
+        private EntityMetaRegistry $entityRegistry,
         private ?AuthorizationCheckerInterface $security = null,
     )
     {
     }
 
-    public function midNavbarMenu(KnpMenuEvent $event): void
+    #[AsEventListener(event: MenuEvent::NAVBAR_MENU)]
+    public function midNavbarMenu(MenuEvent $event): void
     {
         $menu = $event->getMenu();
         foreach (['app_homepage', 'meili_admin'] as $route)
@@ -42,16 +39,19 @@ final class AppMenu implements KnpMenuHelperInterface
             $this->add($menu, $route); // label: u($route)->after('app_')
         }
         $this->add($menu, 'survos_workflow_entities', label: "*entities");
-        foreach ($this->meiliService->settings as $indexName => $settings) {
-//            dd($settings);
-            $this->add($menu, 'meili_insta', ['indexName' => $settings['baseName']], label: $indexName);
+        // Per-entity dashboards (#[EntityMeta]-annotated classes). Replaces
+        // the old direct-to-meili links — each entry now opens the
+        // EntityDashboardController page (db count + meili + ux-search + browse).
+        foreach ($this->entityRegistry->getBrowsable() as $descriptor) {
+            $this->add(
+                $menu,
+                'survos_entity_dashboard',
+                ['code' => $descriptor->code],
+                label: $descriptor->label,
+                icon: $descriptor->icon,
+            );
         }
-//        foreach ([Instrument::class, Official::class, Jeopardy::class] as $class) {
-//            $shortName = new \ReflectionClass($class)->getShortName();
-//            $this->add($menu, 'meili_insta', ['indexName' => 'dtdemo_' . $shortName], label: $shortName);
-//        }
 
-        $options = $event->getOptions();
         if ($this->env === 'dev') {
             $this->add($menu, 'survos_commands', label: "Commands");
         }
@@ -69,7 +69,7 @@ final class AppMenu implements KnpMenuHelperInterface
 //        }
         }
 
-    public function lastNavbarMenu(KnpMenuEvent $event): void
+    public function lastNavbarMenu(MenuEvent $event): void
     {
         return;
 //        <li class="nav-item">
@@ -101,11 +101,10 @@ final class AppMenu implements KnpMenuHelperInterface
         return $this->env === 'dev';
     }
 
-    public function startNavbarMenu(KnpMenuEvent $event): void
+    public function startNavbarMenu(MenuEvent $event): void
     {
         return;
         $menu = $event->getMenu();
-        $options = $event->getOptions();
 
 
         $this->add($menu, 'app_homepage', label: "Home");
@@ -130,14 +129,14 @@ final class AppMenu implements KnpMenuHelperInterface
         }
     }
 
-    public function pageMenu(KnpMenuEvent $event): void
+    public function pageMenu(MenuEvent $event): void
     {
     }
 
-    public function footerMenu(KnpMenuEvent $event): void
+    #[AsEventListener(event: MenuEvent::FOOTER)]
+    public function footerMenu(MenuEvent $event): void
     {
         $menu = $event->getMenu();
-        $options = $event->getOptions();
 
         foreach (['app_homepage'] as $route) {
             $this->add($menu, $route);
@@ -151,7 +150,7 @@ final class AppMenu implements KnpMenuHelperInterface
 
     }
 
-    public function sidebarMenu(KnpMenuEvent $event): void
+    public function sidebarMenu(MenuEvent $event): void
     {
     }
 }

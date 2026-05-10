@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
@@ -25,6 +28,8 @@ use Survos\MeiliBundle\Metadata\MeiliIndex;
     operations: [new Get(), new GetCollection()],
     normalizationContext: ['skip_null_values' => true],
 )]
+#[ApiFilter(filterClass: SearchFilter::class, properties: self::SEARCHABLE_FIELDS)]
+#[ApiFilter(filterClass: OrderFilter::class, properties: self::SORTABLE_FIELDS)]
 #[EntityMeta(icon: 'mdi:movie', group: 'Demo')]
 #[MeiliIndex(
 	primaryKey: 'id',

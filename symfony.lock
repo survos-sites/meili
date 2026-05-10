@@ -228,6 +228,9 @@
     "spomky-labs/phpwa": {
         "version": "1.0.3"
     },
+    "survos/atlas-bundle": {
+        "version": "2.0.220"
+    },
     "survos/auth-bundle": {
         "version": "1.5.67"
     },

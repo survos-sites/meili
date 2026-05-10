@@ -1,3 +1,0 @@
-survos_crawler:
-    resource: '@SurvosCrawlerBundle/config/routes.yaml'
-    prefix: '/crawler'

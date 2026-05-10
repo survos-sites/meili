@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\RangeFilter;
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
@@ -14,6 +17,9 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;
 use Survos\FieldBundle\Attribute\EntityMeta;
+use Survos\FieldBundle\Attribute\Field;
+use Survos\FieldBundle\Enum\Widget;
+use Survos\MeiliBundle\Api\Filter\FacetsFieldSearchFilter;
 use Survos\MeiliBundle\Metadata\MeiliIndex;
 
 /**
@@ -25,6 +31,20 @@ use Survos\MeiliBundle\Metadata\MeiliIndex;
     operations: [new Get(), new GetCollection()],
     normalizationContext: ['skip_null_values' => true],
 )]
+#[ApiFilter(RangeFilter::class, properties: [
+	'dimensionsHeight',
+	'dimensionsLength',
+	'dimensionsWidth',
+	'engineInformationNumberOfForwardGears',
+	'fuelInformationCityMpg',
+	'fuelInformationHighwayMpg',
+	'engineInformationEngineStatisticsHorsepower',
+	'engineInformationEngineStatisticsTorque',
+])]
+#[ApiFilter(OrderFilter::class, properties: self::SORTABLE_FIELDS)]
+#[ApiFilter(FacetsFieldSearchFilter::class, properties: [
+	'engineInformationDriveline',
+])]
 #[EntityMeta(icon: 'mdi:car', group: 'Demo')]
 #[MeiliIndex(
 	primaryKey: 'id',
@@ -95,6 +115,7 @@ final class Car
 	 * @stats total=5076, nulls=0, distinct=4
 	 * @naturalLanguageLike true
 	 */
+	#[Field(filterable: true, widget: Widget::Select, facet: true)]
 	#[Column(length: 17, nullable: true)]
 	public ?string $engineInformationDriveline = null;
 
