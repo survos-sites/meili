@@ -9,7 +9,6 @@
                     "datatables.net-bs5/css/dataTables.bootstrap5.css": true,
                     "datatables.net-buttons-bs5/css/buttons.bootstrap5.css": true,
                     "datatables.net-responsive-bs5/css/responsive.bootstrap5.css": true,
-                    "datatables.net-scroller-bs5/css/scroller.bootstrap5.css": true,
                     "datatables.net-searchbuilder-bs5/css/searchBuilder.bootstrap5.css": true,
                     "datatables.net-select-bs5/css/select.bootstrap5.css": true
                 }

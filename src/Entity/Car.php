@@ -11,7 +11,6 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use App\Repository\CarRepository;
-use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
@@ -36,14 +35,19 @@ use Survos\MeiliBundle\Metadata\MeiliIndex;
 	'dimensionsLength',
 	'dimensionsWidth',
 	'engineInformationNumberOfForwardGears',
-	'fuelInformationCityMpg',
-	'fuelInformationHighwayMpg',
 	'engineInformationEngineStatisticsHorsepower',
 	'engineInformationEngineStatisticsTorque',
+	'fuelInformationCityMpg',
+	'fuelInformationHighwayMpg',
 ])]
 #[ApiFilter(OrderFilter::class, properties: self::SORTABLE_FIELDS)]
 #[ApiFilter(FacetsFieldSearchFilter::class, properties: [
 	'engineInformationDriveline',
+	'engineInformationHybrid',
+	'engineInformationTransmission',
+	'identificationMake',
+	'identificationClassification',
+	'identificationYear',
 ])]
 #[EntityMeta(icon: 'mdi:car', group: 'Demo')]
 #[MeiliIndex(
@@ -58,13 +62,17 @@ final class Car
 		'dimensionsHeight',
 		'dimensionsLength',
 		'engineInformationDriveline',
+		'engineInformationHybrid',
 		'engineInformationNumberOfForwardGears',
 		'engineInformationTransmission',
+		'engineInformationEngineStatisticsHorsepower',
+		'engineInformationEngineStatisticsTorque',
 		'fuelInformationCityMpg',
 		'fuelInformationFuelType',
 		'fuelInformationHighwayMpg',
-		'engineInformationEngineStatisticsHorsepower',
-		'engineInformationEngineStatisticsTorque',
+		'identificationMake',
+		'identificationClassification',
+		'identificationYear',
 	];
 
 	public const SORTABLE_FIELDS = [
@@ -72,185 +80,114 @@ final class Car
 		'dimensionsLength',
 		'dimensionsWidth',
 		'engineInformationNumberOfForwardGears',
-		'fuelInformationCityMpg',
-		'fuelInformationHighwayMpg',
 		'engineInformationEngineStatisticsHorsepower',
 		'engineInformationEngineStatisticsTorque',
+		'fuelInformationCityMpg',
+		'fuelInformationHighwayMpg',
+		'identificationMake',
+		'identificationYear',
 		'id',
 	];
 
 	public const SEARCHABLE_FIELDS = [];
 
-	/**
-	 * Profile field "dimensionsHeight"
-	 * @original Dimensions.Height
-	 * @types int (storageHint=int)
-	 * @stats total=5076, nulls=0, distinct=198
-	 */
+	// ── Dimensions ────────────────────────────────────────────────────────────
+
+	/** @original Dimensions.Height  @stats distinct=198 */
+	#[Field(filterable: true, sortable: true, widget: Widget::Range, width: '5rem', group: 'Dimensions')]
 	#[Column(type: Types::INTEGER, nullable: true)]
 	public ?int $dimensionsHeight = null;
 
-	/**
-	 * Profile field "dimensionsLength"
-	 * @original Dimensions.Length
-	 * @types int (storageHint=int)
-	 * @stats total=5076, nulls=0, distinct=208
-	 */
+	/** @original Dimensions.Length  @stats distinct=208 */
+	#[Field(filterable: true, sortable: true, widget: Widget::Range, width: '5rem', group: 'Dimensions')]
 	#[Column(type: Types::INTEGER, nullable: true)]
 	public ?int $dimensionsLength = null;
 
-	/**
-	 * Profile field "dimensionsWidth"
-	 * @original Dimensions.Width
-	 * @types int (storageHint=int)
-	 * @stats total=5076, nulls=0, distinct=138
-	 */
+	/** @original Dimensions.Width  @stats distinct=138 */
+	#[Field(filterable: true, sortable: true, widget: Widget::Range, width: '5rem', group: 'Dimensions')]
 	#[Column(type: Types::INTEGER, nullable: true)]
 	public ?int $dimensionsWidth = null;
 
-	/**
-	 * Profile field "engineInformationDriveline"
-	 * @original Engine Information.Driveline
-	 * @types string (storageHint=string)
-	 * @stats total=5076, nulls=0, distinct=4
-	 * @naturalLanguageLike true
-	 */
-	#[Field(filterable: true, widget: Widget::Select, facet: true)]
+	// ── Engine Information ────────────────────────────────────────────────────
+
+	/** @original Engine Information.Driveline  @stats distinct=4 */
+	#[Field(filterable: true, widget: Widget::Select, facet: true, group: 'Engine Information')]
 	#[Column(length: 17, nullable: true)]
 	public ?string $engineInformationDriveline = null;
 
-	/**
-	 * Profile field "engineInformationEngineType"
-	 * @original Engine Information.Engine Type
-	 * @types string (storageHint=string)
-	 * @stats total=5076, nulls=0, distinct=535
-	 */
+	/** @original Engine Information.Engine Type  @stats distinct=535 */
+	#[Field(searchable: true, transKey: 'Type', group: 'Engine Information')]
 	#[Column(length: 60, nullable: true)]
 	public ?string $engineInformationEngineType = null;
 
-	/**
-	 * Profile field "engineInformationHybrid"
-	 * @original Engine Information.Hybrid
-	 * @types bool (storageHint=bool)
-	 * @stats total=5076, nulls=0, distinct=1
-	 * @booleanLike true
-	 */
+	/** @original Engine Information.Hybrid  @stats distinct=1 */
+	#[Field(filterable: true, widget: Widget::Boolean, facet: true, group: 'Engine Information')]
 	#[Column(type: Types::BOOLEAN, nullable: true)]
 	public ?bool $engineInformationHybrid = null;
 
-	/**
-	 * Profile field "engineInformationNumberOfForwardGears"
-	 * @original Engine Information.Number of Forward Gears
-	 * @types int (storageHint=int)
-	 * @stats total=5076, nulls=0, distinct=5
-	 */
+	/** @original Engine Information.Number of Forward Gears  @stats distinct=5 */
+	#[Field(filterable: true, sortable: true, widget: Widget::Range, transKey: '# Gears', width: '5rem', group: 'Engine Information')]
 	#[Column(type: Types::INTEGER, nullable: true)]
 	public ?int $engineInformationNumberOfForwardGears = null;
 
-	/**
-	 * Profile field "engineInformationTransmission"
-	 * @original Engine Information.Transmission
-	 * @types string (storageHint=string)
-	 * @stats total=5076, nulls=0, distinct=11
-	 */
+	/** @original Engine Information.Transmission  @stats distinct=11 */
+	#[Field(filterable: true, widget: Widget::Select, facet: true, group: 'Engine Information')]
 	#[Column(length: 30, nullable: true)]
 	public ?string $engineInformationTransmission = null;
 
-	/**
-	 * Profile field "fuelInformationCityMpg"
-	 * @original Fuel Information.City mpg
-	 * @types int (storageHint=int)
-	 * @stats total=5076, nulls=0, distinct=27
-	 */
-	#[Column(type: Types::INTEGER, nullable: true)]
-	public ?int $fuelInformationCityMpg = null;
-
-	/**
-	 * Profile field "fuelInformationFuelType"
-	 * @original Fuel Information.Fuel Type
-	 * @types string (storageHint=string)
-	 * @stats total=5076, nulls=0, distinct=4
-	 */
-	#[Column(length: 22, nullable: true)]
-	public ?string $fuelInformationFuelType = null;
-
-	/**
-	 * Profile field "fuelInformationHighwayMpg"
-	 * @original Fuel Information.Highway mpg
-	 * @types int (storageHint=int)
-	 * @stats total=5076, nulls=0, distinct=34
-	 */
-	#[Column(type: Types::INTEGER, nullable: true)]
-	public ?int $fuelInformationHighwayMpg = null;
-
-	/**
-	 * Profile field "identificationClassification"
-	 * @original Identification.Classification
-	 * @types string (storageHint=string)
-	 * @stats total=5076, nulls=0, distinct=2
-	 */
-	#[Column(length: 22, nullable: true)]
-	public ?string $identificationClassification = null;
-
-	/**
-	 * Profile field "identificationId"
-	 * @original Identification.ID
-	 * @types string (storageHint=string)
-	 * @stats total=5076, nulls=0, distinct=5030
-	 */
-	#[Column(length: 67, nullable: true)]
-	public ?string $identificationId = null;
-
-	/**
-	 * Profile field "identificationMake"
-	 * @original Identification.Make
-	 * @types string (storageHint=string)
-	 * @stats total=5076, nulls=0, distinct=47
-	 */
-	#[Column(length: 18, nullable: true)]
-	public ?string $identificationMake = null;
-
-	/**
-	 * Profile field "identificationModelYear"
-	 * @original Identification.Model Year
-	 * @types string (storageHint=string)
-	 * @stats total=5076, nulls=0, distinct=918
-	 */
-	#[Column(length: 48, nullable: true)]
-	public ?string $identificationModelYear = null;
-
-	/**
-	 * Profile field "identificationYear"
-	 * @original Identification.Year
-	 * @types int (storageHint=int)
-	 * @stats total=5076, nulls=0, distinct=4
-	 */
-	#[Column(type: Types::INTEGER, nullable: true)]
-	public ?int $identificationYear = null;
-
-	/**
-	 * Profile field "engineInformationEngineStatisticsHorsepower"
-	 * @original Engine Information.Engine Statistics.Horsepower
-	 * @types int (storageHint=int)
-	 * @stats total=5076, nulls=0, distinct=216
-	 */
+	/** @original Engine Information.Engine Statistics.Horsepower  @stats distinct=216 */
+	#[Field(filterable: true, sortable: true, widget: Widget::Range, transKey: 'HP', width: '5rem', group: 'Engine Information')]
 	#[Column(type: Types::INTEGER, nullable: true)]
 	public ?int $engineInformationEngineStatisticsHorsepower = null;
 
-	/**
-	 * Profile field "engineInformationEngineStatisticsTorque"
-	 * @original Engine Information.Engine Statistics.Torque
-	 * @types int (storageHint=int)
-	 * @stats total=5076, nulls=0, distinct=217
-	 */
+	/** @original Engine Information.Engine Statistics.Torque  @stats distinct=217 */
+	#[Field(filterable: true, sortable: true, widget: Widget::Range, transKey: 'Torque', width: '5rem', group: 'Engine Information')]
 	#[Column(type: Types::INTEGER, nullable: true)]
 	public ?int $engineInformationEngineStatisticsTorque = null;
 
-	/**
-	 * Profile field "id"
-	 * @types int (storageHint=int)
-	 * @stats total=5076, nulls=0, distinct=5076
-	 */
+	// ── Fuel Information ──────────────────────────────────────────────────────
+
+	/** @original Fuel Information.City mpg  @stats distinct=27 */
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $fuelInformationCityMpg = null;
+
+	/** @original Fuel Information.Fuel Type  @stats distinct=4 */
+	#[Column(length: 22, nullable: true)]
+	public ?string $fuelInformationFuelType = null;
+
+	/** @original Fuel Information.Highway mpg  @stats distinct=34 */
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $fuelInformationHighwayMpg = null;
+
+	// ── Identification ────────────────────────────────────────────────────────
+
+	/** @original Identification.Make  @stats distinct=47 */
+	#[Field(filterable: true, sortable: true, widget: Widget::Select, facet: true, group: 'Identification')]
+	#[Column(length: 18, nullable: true)]
+	public ?string $identificationMake = null;
+
+	/** @original Identification.Model Year  @stats distinct=918 */
+	#[Field(searchable: true, group: 'Identification')]
+	#[Column(length: 48, nullable: true)]
+	public ?string $identificationModelYear = null;
+
+	/** @original Identification.Year  @stats distinct=4 */
+	#[Field(filterable: true, sortable: true, widget: Widget::Select, facet: true, group: 'Identification')]
+	#[Column(type: Types::INTEGER, nullable: true)]
+	public ?int $identificationYear = null;
+
+	/** @original Identification.Classification  @stats distinct=2 */
+	#[Field(filterable: true, widget: Widget::Select, facet: true, group: 'Identification')]
+	#[Column(length: 22, nullable: true)]
+	public ?string $identificationClassification = null;
+
+	/** @original Identification.ID  @stats distinct=5030 */
+	#[Field(searchable: true, visible: false, group: 'Identification')]
+	#[Column(length: 67, nullable: true)]
+	public ?string $identificationId = null;
+
+	// ── Primary key ───────────────────────────────────────────────────────────
+
 	#[Column(type: Types::INTEGER, nullable: false)]
 	#[Id]
 	public ?int $id = null;
