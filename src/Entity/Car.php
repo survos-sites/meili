@@ -61,6 +61,7 @@ final class Car
 	public const FILTERABLE_FIELDS = [
 		'dimensionsHeight',
 		'dimensionsLength',
+		'dimensionsWidth',
 		'engineInformationDriveline',
 		'engineInformationHybrid',
 		'engineInformationNumberOfForwardGears',

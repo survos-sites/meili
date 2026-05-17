@@ -1550,7 +1550,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sqliteFilename?: scalar|Param|null, // Default: "scraper.sqlite"
  * }
  * @psalm-type SurvosSimpleDatatablesConfig = array{
- *     stimulus_controller?: scalar|Param|null, // Default: "@survos/simple-datatables/table"
+ *     stimulus_controller?: scalar|Param|null, // Default: "@survos/simple-datatables-bundle/table"
  *     per_page?: bool|Param, // Default: 10
  *     searchable?: bool|Param, // Default: true
  *     fixed_height?: scalar|Param|null, // Default: true
@@ -2089,7 +2089,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     enabled?: bool|Param, // Default: true
  * }
  * @psalm-type SurvosImportConfig = array{
- *     dir?: scalar|Param|null, // The default directory for data files // Default: "data"
+ *     dir?: scalar|Param|null, // Default directory for data files // Default: "data"
+ *     dto_namespace_roots?: list<scalar|Param|null>,
+ *     dto_mappings?: array<string, scalar|Param|null>,
  * }
  * @psalm-type SurvosApiGridConfig = array{
  *     routes_enabled?: bool|Param, // Auto-register this bundle's controllers via attribute scanning. Set false to manage routes manually in your app's config/routes/. // Default: true
